@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    cursor: default;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    font-family: Verdana, sans-serif;
+}
+
+header {
+    width: 100%;
+    height:10vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 1vh 2vw;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: rgba(244, 144, 107, 0.499);
+    font-family: Verdana, sans-serif;
+}
+
+header ul {
+    display: flex;
+    position: relative;
+}
+
+header ul li {
+    list-style: none;
+    padding: 0 2vw;
+}
+
+header ul li a{
+    text-decoration: none;
+    cursor: pointer;
+    font-size: medium;
+    color: black;
+}
+
+.pomodoro {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.settings {
+    width: 5vw;
+    height: 90vh;
+    background-color: rgba(0, 154, 154, 0.492);
+}
+
+.settings button {
+    display:block;
+    vertical-align: middle;
+}
