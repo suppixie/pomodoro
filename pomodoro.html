@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pomodoro</title>
+    <link rel="stylesheet" href="pomodoro.css">
+    <script src="https://kit.fontawesome.com/ce90223bac.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+        <!-- <img src="" width="100%"> -->
+        <h2>Pomodoro</h2>
+        <ul>
+            <li><a href="#">Pomodoro</a></li>
+            <li><a href="#">Moodboard</a></li>
+            <li><a href="#">Diary</a></li>
+        </ul>
+    </header>
+    <section >
+        <div class="pomodoro">
+            <div class="settings">
+                <button><i class="fa-solid fa-gear"></i></button>
+                <button><i class="fa-solid fa-music"></i></button>
+                <button><i class="fa-solid fa-list-check"></i></button>
+            </div>
+            <!-- <img class="pomodoro-bg" src=""> -->
+            <div class="timer-block">
+                <!-- task name section-->
+                <!-- task name display -->
+                <!-- session number -->
+                <!-- tabs for time and breaks-->
+                <div class="tabs">
+                    <h4 id="work">Work</h4>
+                    <h4 id="sbreak">Short Break</h4>
+                    <h4 id="lbreak">Long Break</h4>
+                </div>
+
+                <!-- timer -->
+                <div class="timer">
+                    <div class="time-display">
+                        <p id="minutes"></p>
+                        <p>:</p>
+                        <p id="seconds"></p>
+                    </div>
+
+                    <!-- controls to start , pause and reset -->
+                    <div class="timer-controls">
+                        <button onclick="start()" id="start"><i class="fa-solid fa-play"></i></button>
+                        <button onclick="stop()" id="stop"><i class="fa-solid fa-pause"></i></button>
+                        <button id="reset"><i class="fa-solid fa-rotate-left"></i></button>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <script src="pomodoro.js"></script>
+        <div class="options">
+            <!-- change background -->
+            <!-- change timer -->
+            <!-- audio controls -->
+        </div>
+    </section>
+</body>
+</html>
