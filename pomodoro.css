@@ -7,7 +7,7 @@
 }
 
 section {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     display: flex;
     position: relative;
@@ -16,7 +16,7 @@ section {
 }
 
 header {
-    width: 100%;
+    max-width: 100%;
     height:10vh;
     display: flex;
     justify-content: space-between;
@@ -25,6 +25,7 @@ header {
     align-items: center;
     background-color: rgba(244, 144, 107, 0.499);
     font-family: Verdana, sans-serif;
+    font-size: 2.8vh;
 }
 
 header ul {
@@ -51,14 +52,73 @@ header ul li a{
     position: relative;
     justify-content: space-between;
 }
+/* settings of the timer */
 
 .settings {
-    width: 5vw;
-    height: 90vh;
+    margin: 2vh 1vw;
+    width: 4vw;
+    max-height: 30vh;
     background-color: rgba(0, 154, 154, 0.492);
+    position: relative;
+    border-radius:15px;
+    display: block
+    
 }
 
 .settings button {
+    background-color: transparent;
+    font-size: 4vh;
+    border: none;
     display:block;
-    vertical-align: middle;
+    margin: 1.1vw;
+}
+
+.timer-block {
+    width: 30vw;
+    max-height: 30vh;
+    background-color: rgba(255, 255, 255, 0.497);
+    border-radius: 20px;
+    text-align: center;
+    /* padding:2vh 2vw; */
+    position: relative;
+    translate: -120% 90%;
+}
+/* tabs in the timer */
+.tabs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tabs p {
+    background-color: rgba(255, 255, 255, 0.281);
+    padding: 2vh 1.7vw;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    cursor: pointer;
+    font-size: 2.8vh;
+    align-items: center;
+}
+
+.time-display {
+    font-size: 10vh;
+    padding-bottom: 2vh;
+}
+
+.timer-controls {
+    display: flex;
+    margin:0 10vw;
+    justify-content: space-between;
+    padding-bottom: 1.5vh;
+}
+
+.timer-controls button {
+    background-color: transparent;
+    border: none;
+    font-size: 4vh;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.timer-controls button:hover {
+    transition: ease-in-out;
+    cursor: pointer;
 }

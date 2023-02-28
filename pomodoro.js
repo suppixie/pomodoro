@@ -61,9 +61,9 @@ window.onload = () => {
 // start timer
 function start() {
     // change button
-    document.getElementById('start').style.display = "block";
-    document.getElementById('stop').style.display = "block";
-    document.getElementById('reset').style.display = "block";
+    document.getElementById('start').style.display = "flex";
+    document.getElementById('stop').style.display = "flex";
+    document.getElementById('reset').style.display = "flex";
 
     // change the time
     seconds = 59;
