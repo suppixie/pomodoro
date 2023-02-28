@@ -108,6 +108,7 @@ function start() {
                     breakCount++
 
                     // change the tabs
+                    
                     sBreakTitle.classList.remove('active');
                     lBreakTitle.classList.remove('active');
                     workTitle.classList.add('active');

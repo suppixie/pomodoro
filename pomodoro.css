@@ -8,11 +8,14 @@
 
 section {
     max-width: 100%;
-    height: 100%;
-    display: flex;
+    height: 100vh;
+    display: block;
     position: relative;
     justify-content: space-between;
     font-family: Verdana, sans-serif;
+    background-image: url(./assets/v904-nunny-004.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 header {
@@ -23,7 +26,7 @@ header {
     padding: 1vh 2vw;
     flex-wrap: nowrap;
     align-items: center;
-    background-color: rgba(244, 144, 107, 0.499);
+    background-color: rgba(255, 255, 255, 0.281);
     font-family: Verdana, sans-serif;
     font-size: 2.8vh;
 }
@@ -57,26 +60,82 @@ header ul li a{
 .settings {
     margin: 2vh 1vw;
     width: 4vw;
-    max-height: 30vh;
-    background-color: rgba(0, 154, 154, 0.492);
+    max-height: 25vh;
+    background-color:rgba(255, 255, 255, 0.497);
     position: relative;
     border-radius:15px;
-    display: block
-    
+    display: block;
+    z-index: 0;
 }
-
+.settings input {
+    width: 5vw;
+}
 .settings button {
     background-color: transparent;
     font-size: 4vh;
     border: none;
     display:block;
     margin: 1.1vw;
+    cursor: pointer;
+    color: white;
+
 }
+.change-settings {
+    background-color: rgba(255, 255, 255, 0.281);
+    float: left;
+    margin:0 5vw;
+    display: none;
+    position:sticky;
+    min-height: 40vh;
+    max-width: 30vw;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+.change-settings-icon:focus + .change-settings{
+    display: block;
+    position: fixed;
+    translate: 0% -22%;
+
+}
+.change-settings-icon:focus {
+    color: black;
+}
+.change-settings div {
+    display: flex;
+    justify-content:space-between;
+}
+
+.change-settings .input1 , .change-settings .input2 ,.change-settings .input3{
+    display: block;
+}
+.sounds {
+    background-color: rgba(255, 255, 255, 0.281);
+    float: left;
+    margin:0 5vw;
+    display: none;
+    position:sticky;
+    min-height: 40vh;
+    max-width: 30vw;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.change-sounds-icon:focus + .sounds{
+    display: block;
+    position: fixed;
+    translate: 0% -40%;
+}
+
+.change-sounds-icon:focus {
+    color: black;
+}
+
 
 .timer-block {
     width: 30vw;
     max-height: 30vh;
-    background-color: rgba(255, 255, 255, 0.497);
     border-radius: 20px;
     text-align: center;
     /* padding:2vh 2vw; */
@@ -98,7 +157,13 @@ header ul li a{
     font-size: 2.8vh;
     align-items: center;
 }
+.timer {
+    background-color: rgba(255, 255, 255, 0.497);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 
+
+}
 .time-display {
     font-size: 10vh;
     padding-bottom: 2vh;
@@ -112,13 +177,15 @@ header ul li a{
 }
 
 .timer-controls button {
+    cursor: pointer;
     background-color: transparent;
     border: none;
     font-size: 4vh;
-    cursor: pointer;
     transition: 0.5s;
+
 }
 .timer-controls button:hover {
-    transition: ease-in-out;
+    transform: scale(1.5);
+    transition:1s;
     cursor: pointer;
 }

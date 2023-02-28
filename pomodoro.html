@@ -10,24 +10,51 @@
 
 </head>
 <body>
-    <header>
-        <!-- <img src="" width="100%"> -->
-        <h2>Pomodoro</h2>
-        <ul>
-            <li><a href="#">Pomodoro</a></li>
-            <li><a href="#">Moodboard</a></li>
-            <li><a href="#">Diary</a></li>
-        </ul>
-    </header>
+
     <section >
+        <header>
+            <!-- <img src="" width="100%"> -->
+            <h2>Pomodoro</h2>
+            <ul>
+                <li><a href="#">Pomodoro</a></li>
+                <li><a href="#">Moodboard</a></li>
+                <li><a href="#">Diary</a></li>
+            </ul>
+        </header>
         <div class="pomodoro">
             <div class="settings">
-                <button><i class="fa-solid fa-gear"></i></button>
-                <button><i class="fa-solid fa-music"></i></button>
+                <button class="change-settings-icon"><i class="fa-solid fa-gear"></i></button>
+                <div class="change-settings">
+                    <h4>Set Time (minutes) </h4>
+                    <div>
+                    <div class="input1">
+                        <h5>Pomodoro</h5>
+                        <input type="number" id="work" value="minutes">
+                    </div>
+                    <div class="input2">
+                        <h5>Short Break</h5>
+                        <input type="number" id="sbreak" value="minutes">
+                    </div>
+                    <div class="input3">
+                        <h5>Long Break</h5>
+                        <input type="number" id="lbreak" value="minutes">
+                    </div>
+                    </div>
+                </div>
+                <button class="change-sounds-icon"><i class="fa-solid fa-music"></i></button>
+                <div class="sounds">
+                    <h4>Sounds</h4>
+                    <div>
+                    <p> Alarm Sound</p>
+                    <input type="text"></div>
+                    <p>Street noise</p>
+                    <p>rain</p>
+                    <p>white noise</p>
+                </div>
                 <button><i class="fa-solid fa-list-check"></i></button>
             </div>
             <!-- <i class="fa-solid fa-square-chevron-right"></i> -->
-            <!-- <img class="pomodoro-bg" src=""> -->
+            <!-- <img class="pomodoro-bg" src="./assets/v904-nunny-004.jpg" width="100%"> -->
             <div class="timer-block">
                 <!-- task name section-->
                 <!-- task name display -->
