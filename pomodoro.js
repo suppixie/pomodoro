@@ -127,3 +127,56 @@ function stop() {
 // startButton.addEventListener("click", start());
 // stopButton.addEventListener("click", stop);
 
+
+
+// changing the theme of the website
+
+function themes (){
+    const themeSelector = document.querySelector("#theme-options")
+    const selectedImg=  themeSelector.value;
+    document.body.style.backgroundImage = `url(${selectedImg})`;
+    themeSelector.addEventListener('change', themes);}
+
+    const themeSelector = document.querySelector("#theme-options")
+    selector.addEventListener('change', themes);
+      
+//     }
+//     else if (option=="2"){
+//         document.getElementById("bg").style.backgroundImage="url(./assets/street.jpg)";
+//     }
+//     else if (option=="3"){
+//         document.getElementById("bg").style.backgroundImage="url(./assets/seaside.jpg)";
+//     }
+    
+// }
+
+function changeVideo() {
+    const video = document.querySelector('#bg-video');
+    const selector = document.querySelector('#theme-options');
+    const selectedVideo = selector.value;
+    const source = document.querySelector('#bg-video source');
+    source.src = selectedVideo;
+    video.load();
+  }
+
+  const selector = document.querySelector('#theme-options');
+  selector.addEventListener('change', changeVideo);
+
+
+
+
+// function playVideo(){
+//     themebox =document.getElementById("theme-options")
+//     option=themeBox.options[themeBox.selectedIndex].value;
+//     var video = document.getElementById("video1");
+//     video.play();
+//     }
+//     else if (option=="2"){
+//         var video = document.getElementById("video2");
+//         video.play();
+//     }
+//     else if (option=="3"){
+//         var video = document.getElementById("video3");
+//         video.play();
+//     }
+// }

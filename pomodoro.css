@@ -13,22 +13,25 @@ section {
     position: relative;
     justify-content: space-between;
     font-family: Verdana, sans-serif;
-    background-image: url(./assets/v904-nunny-004.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
-
+body{
+    background-image: url(./assets/aura.jpg);
+    background-repeat: no-repeat;
+    background-size:100%;
+    transition: 0.5s;
+}
 header {
     max-width: 100%;
-    height:10vh;
+    height:8vh;
     display: flex;
     justify-content: space-between;
     padding: 1vh 2vw;
     flex-wrap: nowrap;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.281);
+    /* background-color: rgba(57, 59, 68, 0.85); */
     font-family: Verdana, sans-serif;
     font-size: 2.8vh;
+    color: azure;
 }
 
 header ul {
@@ -45,12 +48,12 @@ header ul li a{
     text-decoration: none;
     cursor: pointer;
     font-size: medium;
-    color: black;
+    color:azure;
 }
 
+
 .pomodoro {
-    width: 100%;
-    height: 100%;
+    color:azure;
     display: flex;
     position: relative;
     justify-content: space-between;
@@ -61,7 +64,7 @@ header ul li a{
     margin: 2vh 1vw;
     width: 4vw;
     max-height: 25vh;
-    background-color:rgba(255, 255, 255, 0.497);
+    background-color:rgba(35,40,48,255);
     position: relative;
     border-radius:15px;
     display: block;
@@ -77,7 +80,7 @@ header ul li a{
     display:block;
     margin: 1.1vw;
     cursor: pointer;
-    color: white;
+    color: azure;
 
 }
 .change-settings {
@@ -90,17 +93,19 @@ header ul li a{
     max-width: 30vw;
     padding: 10px;
     border-radius: 15px;
+    font-size: 2vh;
+
 
 }
 
-.change-settings-icon:focus + .change-settings{
+.change-settings-icon:focus + .change-settings, .change-settings:hover , .change-settings:active{
     display: block;
     position: fixed;
     translate: 0% -22%;
 
 }
 .change-settings-icon:focus {
-    color: black;
+    color: grey;
 }
 .change-settings div {
     display: flex;
@@ -129,19 +134,22 @@ header ul li a{
 }
 
 .change-sounds-icon:focus {
-    color: black;
+    color: grey;
 }
 
 
 .timer-block {
-    width: 30vw;
-    max-height: 30vh;
+    width: 25.5vw;
+    max-height: 25vh;
     border-radius: 20px;
     text-align: center;
     /* padding:2vh 2vw; */
     position: relative;
-    translate: -120% 90%;
+    top: 2vh;
+    right: 1vw;
+    /* translate: -115% 90%; */
 }
+
 /* tabs in the timer */
 .tabs {
     display: flex;
@@ -149,29 +157,33 @@ header ul li a{
 }
 
 .tabs p {
-    background-color: rgba(255, 255, 255, 0.281);
-    padding: 2vh 1.7vw;
+    background-color:rgba(35,40,48,255);
+    /*  rgba(57, 59, 68, 0.85); */
+    padding: 1.5vh 1.5vw;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     cursor: pointer;
-    font-size: 2.8vh;
+    font-size: 2.4vh;
     align-items: center;
+    border-bottom: 1px solid rgba(240, 255, 255, 0.654);
+
 }
 .timer {
-    background-color: rgba(255, 255, 255, 0.497);
+    color: white;
+    background-color: rgba(35,40,48,255);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 
 
 }
 .time-display {
-    font-size: 10vh;
+    font-size: 8vh;
     padding-bottom: 2vh;
 }
 
 .timer-controls {
     display: flex;
-    margin:0 10vw;
+    margin:0 8vw;
     justify-content: space-between;
     padding-bottom: 1.5vh;
 }
@@ -182,6 +194,7 @@ header ul li a{
     border: none;
     font-size: 4vh;
     transition: 0.5s;
+    color: azure;
 
 }
 .timer-controls button:hover {

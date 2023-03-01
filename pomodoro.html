@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <section >
+    <section id="bg">
         <header>
             <!-- <img src="" width="100%"> -->
             <h2>Pomodoro</h2>
@@ -28,17 +28,32 @@
                     <h4>Set Time (minutes) </h4>
                     <div>
                     <div class="input1">
-                        <h5>Pomodoro</h5>
+                        <p>Pomodoro</p>
                         <input type="number" id="work" value="minutes">
                     </div>
                     <div class="input2">
-                        <h5>Short Break</h5>
+                        <p>Short Break</p>
                         <input type="number" id="sbreak" value="minutes">
                     </div>
                     <div class="input3">
-                        <h5>Long Break</h5>
+                        <p>Long Break</p>
                         <input type="number" id="lbreak" value="minutes">
                     </div>
+                    </div>
+                    <div class="theme">
+                        <h4>Select Theme</h4>
+                        <select onchange="themes(value);" class="form-select" id="theme-options">
+                            <option  selected value="./assets/aura.jpg">Aura</option>
+                            <option  value="./assets/street.jpg">Street</option>
+                            <option  value="./assets/seaside-cafe.jpg">Seaside Cafe</option>
+                            <option  value="./assets/boating.jpg">Boating</option>
+                            <option  value="./assets/starfish.jpg">Beach</option>
+                            <option  value="./assets/northern-lights.jpg">Northern Lights</option>
+                            <option  value="./assets/space.jpg">Space</option>
+                            <option  value="./assets/sunset-at-sea.jpg">Sunset</option>
+                            <option  value="./assets/cat.jpg">Cat</option>
+                            <option  value="./assets/autumn.jpg">Autumn</option>
+                          </select>
                     </div>
                 </div>
                 <button class="change-sounds-icon"><i class="fa-solid fa-music"></i></button>
@@ -53,8 +68,6 @@
                 </div>
                 <button><i class="fa-solid fa-list-check"></i></button>
             </div>
-            <!-- <i class="fa-solid fa-square-chevron-right"></i> -->
-            <!-- <img class="pomodoro-bg" src="./assets/v904-nunny-004.jpg" width="100%"> -->
             <div class="timer-block">
                 <!-- task name section-->
                 <!-- task name display -->
