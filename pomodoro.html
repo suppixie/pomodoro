@@ -23,25 +23,30 @@
         </header>
         <div class="pomodoro">
             <div class="settings">
-                <button class="change-settings-icon"><i class="fa-solid fa-gear"></i></button>
-                <div class="change-settings">
-                    <h4>Set Time (minutes) </h4>
+                <button class="general-settings-icon"><i class="fa-solid fa-gear"></i></button>
+                <div class="general-settings">
+                    <h3>Set Time </h3>
                     <div>
-                    <div class="input1">
-                        <p>Pomodoro</p>
-                        <input type="number" id="work" value="minutes">
+                    <div class="pinput">
+                        <h4>Pomodoro</h4>
+                        <input type="number" id="workinput" value="minutes" step="1" min="1" max="90">
+                        <p style="color: rgb(175, 175, 175);">minutes</p>
                     </div>
-                    <div class="input2">
-                        <p>Short Break</p>
-                        <input type="number" id="sbreak" value="minutes">
+                    <div class="pinput">
+                        <h4>Short Break</h4>
+                        <input type="number" id="sbreakinput" value="minutes" step="1" min="1" max="90">
+                        <p style="color: rgb(175, 175, 175);">minutes</p>
+
                     </div>
-                    <div class="input3">
-                        <p>Long Break</p>
-                        <input type="number" id="lbreak" value="minutes">
+                    <div class="pinput">
+                        <h4>Long Break</h4>
+                        <input type="number" id="lbreakinput" value="minutes" step="1" min="1" max="90">
+                        <p style="color: rgb(175, 175, 175);">minutes</p>
                     </div>
                     </div>
+                    <!-- change themes in general settings -->
                     <div class="theme">
-                        <h4>Select Theme</h4>
+                        <h3>Select Theme</h3>
                         <select onchange="themes(value);" class="form-select" id="theme-options">
                             <option  selected value="./assets/aura.jpg">Aura</option>
                             <option  value="./assets/street.jpg">Street</option>
@@ -55,13 +60,26 @@
                             <option  value="./assets/autumn.jpg">Autumn</option>
                           </select>
                     </div>
+                    <div class="alarms">
+                        <p> Alarm Sound</p>
+                        <select onchange="alarms(value);" class="form-select" id="alarm-options">
+                            <option  selected id="sound" value="/assets/alarms/bells.mp3#t=25">Bells</option>
+                            <option  id="sound" value="./assets/alarms/calm.mp3#t=25">Calm</option>
+                            <option  id="sound" value="./assets/alarms/calm.mp3#t=25">Calm</option>
+                            <option id="sound" value="./assets/alarms/car.mp3#t=25">Car</option>
+                            <option id="sound" value="./assets/alarms/gong.mp3#t=25">Gong</option>
+                            <option id="sound" value="./assets/alarms/kalimba.mp3#t=25">kalimba</option>
+                          </select>
+                    </div>
                 </div>
+
+                <!-- change sounds settings -->
+
                 <button class="change-sounds-icon"><i class="fa-solid fa-music"></i></button>
                 <div class="sounds">
                     <h4>Sounds</h4>
-                    <div>
-                    <p> Alarm Sound</p>
-                    <input type="text"></div>
+                    <span class="sc-ewSTlh kZdbCU">Delta Waves</span><audio id="delta-waves" src="https://pub-ba7c81337874432dbe9c5b19d2cbd787.r2.dev/Delta%20Waves%20(looped).mp3" loop="" preload="none"><source src="https://pub-ba7c81337874432dbe9c5b19d2cbd787.r2.dev/Delta%20Waves%20(looped).mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio><div class="volume-toggle"><span><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="volume-toggle-icon dark"></svg></span></div>
+                    </span>
                     <p>Street noise</p>
                     <p>rain</p>
                     <p>white noise</p>
@@ -74,34 +92,35 @@
                 <!-- session number -->
                 <!-- tabs for time and breaks-->
                 <div class="tabs">
-                    <p id="work">Work</p>
-                    <p id="sbreak">Short Break</p>
-                    <p id="lbreak">Long Break</p>
+                    <label id="pom"><input type="radio" name="timer-type" value="pomodoro" checked>Pomodoro</label>
+                    <label id="sb"><input type="radio" name="timer-type" value="short-break">Short Break</label>
+                    <label id="lb"><input type="radio" name="timer-type" value="long-break">Long Break</label>
+                    <!-- <label name="timer-type" value="pomodoro">Work</label>
+                    <label name="timer-type" value="short-break">Short Break</label>
+                    <label name="timer-type" value="long-break">Long Break</label> -->
                 </div>
-
+                <hr>
                 <!-- timer -->
+                
                 <div class="timer">
                     <div class="time-display">
-                        <span id="minutes"></span>
-                        <span>:</span>
-                        <span id="seconds"></span>
+                        <h2 id="time-left">25:00</h2> 
                     </div>
 
                     <!-- controls to start , pause and reset -->
                     <div class="timer-controls">
-                        <button onclick="start()" id="start"><i class="fa-solid fa-play"></i></button>
-                        <button onclick="stop()" id="stop"><i class="fa-solid fa-pause"></i></button>
+                        <button id="start"><i class="fa-solid fa-play"></i></button>
+                        <button id="stop"><i class="fa-solid fa-pause"></i></button>
                         <button id="reset"><i class="fa-solid fa-rotate-left"></i></button>
                     </div>
+                    <audio id="alarm">
+                        <source src="./assets/alarms/bells.mp3" type="audio/mpeg">
+                      </audio>    
                 </div> 
             </div>
         </div>
         <script src="pomodoro.js"></script>
-        <div class="options">
-            <!-- change background -->
-            <!-- change timer -->
-            <!-- audio controls -->
-        </div>
+        
     </section>
 </body>
 </html>

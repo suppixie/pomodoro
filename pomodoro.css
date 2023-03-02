@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Marcellus&family=Oleo+Script&family=Poppins:wght@300;400&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -12,9 +14,10 @@ section {
     display: block;
     position: relative;
     justify-content: space-between;
-    font-family: Verdana, sans-serif;
+    
 }
 body{
+    font-family:'Poppins', sans-serif;
     background-image: url(./assets/aura.jpg);
     background-repeat: no-repeat;
     background-size:100%;
@@ -29,7 +32,6 @@ header {
     flex-wrap: nowrap;
     align-items: center;
     /* background-color: rgba(57, 59, 68, 0.85); */
-    font-family: Verdana, sans-serif;
     font-size: 2.8vh;
     color: azure;
 }
@@ -58,7 +60,8 @@ header ul li a{
     position: relative;
     justify-content: space-between;
 }
-/* settings of the timer */
+
+/* settings of the timer css */
 
 .settings {
     margin: 2vh 1vw;
@@ -83,38 +86,72 @@ header ul li a{
     color: azure;
 
 }
-.change-settings {
-    background-color: rgba(255, 255, 255, 0.281);
+
+/* general settings of timer and theme */
+
+.general-settings {
+    background-color: rgba(35,40,48,255);
     float: left;
     margin:0 5vw;
     display: none;
-    position:sticky;
-    min-height: 40vh;
-    max-width: 30vw;
-    padding: 10px;
+    max-height: 40vh;
+    min-width: 25vw;
+    max-width: 40vw;
+    padding: 1.5%;
     border-radius: 15px;
     font-size: 2vh;
-
-
+    transition: 0.5s;
 }
 
-.change-settings-icon:focus + .change-settings, .change-settings:hover , .change-settings:active{
+.general-settings h3 {
+    font-size: 2.5vh;
+    padding-bottom: 2%;
+    font-weight:bold;
+}
+
+.general-settings h4 {
+    font-weight: normal;
+}
+.general-settings-icon:focus + .general-settings, .general-settings:hover , .general-settings:active{
     display: block;
     position: fixed;
-    translate: 0% -22%;
+    translate: 0% -32%;
 
 }
-.change-settings-icon:focus {
+.general-settings-icon:focus {
     color: grey;
 }
-.change-settings div {
+.general-settings div {
     display: flex;
     justify-content:space-between;
 }
 
-.change-settings .input1 , .change-settings .input2 ,.change-settings .input3{
+.general-settings .pinput {
+    display: block;
+    padding-right: 2%;
+    max-width: 8vw;
+}
+.general-settings .pinput * {
+    padding-bottom: 10%;
+}
+.general-settings #workinput, #sbreakinput , #lbreakinput {
+    color: azure;
+    border-radius: 5%;
+    border: 1px grey solid;
+    background-color: rgba(35,40,48,255);
+    appearance: none;
+    width: 5.5vw;
+    background-clip: padding-box;
+    bottom: 0;
+    padding:2% 5%;
+}
+
+.general-settings .theme{
     display: block;
 }
+
+/* change sounds */
+
 .sounds {
     background-color: rgba(255, 255, 255, 0.281);
     float: left;
@@ -137,68 +174,79 @@ header ul li a{
     color: grey;
 }
 
+/* timer block css */
 
 .timer-block {
-    width: 25.5vw;
+    display: block;
+    width: 30vw;
     max-height: 25vh;
     border-radius: 20px;
     text-align: center;
-    /* padding:2vh 2vw; */
     position: relative;
     top: 2vh;
     right: 1vw;
-    /* translate: -115% 90%; */
+    /* translate: 120% 120%; */
 }
 
 /* tabs in the timer */
 .tabs {
     display: flex;
-    justify-content: space-between;
-}
-
-.tabs p {
     background-color:rgba(35,40,48,255);
-    /*  rgba(57, 59, 68, 0.85); */
-    padding: 1.5vh 1.5vw;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
+}
+
+.tabs label {
+    background-color: transparent;
+    /* background-color:rgba(35,40,48,255); */
+    /*  rgba(57, 59, 68, 0.85); */
+    padding:3% 4%;
     cursor: pointer;
     font-size: 2.4vh;
     align-items: center;
-    border-bottom: 1px solid rgba(240, 255, 255, 0.654);
-
+    border-right: 1px solid rgba(240, 255, 255, 0.654);
 }
+#lb {
+    border: none;
+}
+
 .timer {
+    text-align: center;
     color: white;
     background-color: rgba(35,40,48,255);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6%;
 
 
 }
 .time-display {
     font-size: 8vh;
-    padding-bottom: 2vh;
+    display: flex;
 }
 
 .timer-controls {
-    display: flex;
-    margin:0 8vw;
-    justify-content: space-between;
-    padding-bottom: 1.5vh;
+    padding-top: 6%;
+    align-items:start;
+    display: block;
+    /* margin:0 8vw; */
+    /* justify-content: space-between; */
 }
 
 .timer-controls button {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    font-size: 4vh;
+    font-size: 5vh;
     transition: 0.5s;
     color: azure;
+    padding: 0 1vw;
 
 }
 .timer-controls button:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
     transition:1s;
     cursor: pointer;
 }
