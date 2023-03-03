@@ -141,19 +141,30 @@ header ul li a{
     background-color: rgba(35,40,48,255);
     appearance: none;
     width: 5.5vw;
+    height: 3.5vh;
     background-clip: padding-box;
     bottom: 0;
     padding:2% 5%;
 }
 
-.general-settings .theme{
-    display: block;
+.general-settings hr{
+    margin-bottom: 1vh;
+}
+.general-settings .theme, .alarms{
+    display: flex;
+    padding-bottom: 0.8vh;
+    align-items: center;
 }
 
+.theme select , .alarms select {
+    height: 3vh;
+    width: 10vw;
+    font-size: 0.9rem;
+}
 /* change sounds */
 
 .sounds {
-    background-color: rgba(255, 255, 255, 0.281);
+    background-color: rgba(35,40,48,255);
     float: left;
     margin:0 5vw;
     display: none;

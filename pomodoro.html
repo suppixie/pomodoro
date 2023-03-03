@@ -44,6 +44,7 @@
                         <p style="color: rgb(175, 175, 175);">minutes</p>
                     </div>
                     </div>
+                    <hr>
                     <!-- change themes in general settings -->
                     <div class="theme">
                         <h3>Select Theme</h3>
@@ -60,17 +61,18 @@
                             <option  value="./assets/autumn.jpg">Autumn</option>
                           </select>
                     </div>
+                    <!-- change alarm sounds -->
                     <div class="alarms">
-                        <p> Alarm Sound</p>
+                        <h3> Alarm Sound</h3>
                         <select onchange="alarms(value);" class="form-select" id="alarm-options">
-                            <option  selected id="sound" value="/assets/alarms/bells.mp3#t=25">Bells</option>
-                            <option  id="sound" value="./assets/alarms/calm.mp3#t=25">Calm</option>
-                            <option  id="sound" value="./assets/alarms/calm.mp3#t=25">Calm</option>
-                            <option id="sound" value="./assets/alarms/car.mp3#t=25">Car</option>
-                            <option id="sound" value="./assets/alarms/gong.mp3#t=25">Gong</option>
-                            <option id="sound" value="./assets/alarms/kalimba.mp3#t=25">kalimba</option>
+                            <option  selected value="/assets/alarms/bells.mp3#t=25">Bells</option>
+                            <option value="./assets/alarms/calm.mp3#t=25">Calm</option>
+                            <option value="./assets/alarms/car.mp3#t=25">Car</option>
+                            <option value="./assets/alarms/gong.mp3#t=25">Gong</option>
+                            <option value="./assets/alarms/kalimba.mp3#t=25">kalimba</option>
                           </select>
                     </div>
+                    <audio id="alarm" src=""></audio>
                 </div>
 
                 <!-- change sounds settings -->
@@ -85,6 +87,7 @@
                     <p>white noise</p>
                 </div>
                 <button><i class="fa-solid fa-list-check"></i></button>
+                
             </div>
             <div class="timer-block">
                 <!-- task name section-->
@@ -113,14 +116,13 @@
                         <button id="stop"><i class="fa-solid fa-pause"></i></button>
                         <button id="reset"><i class="fa-solid fa-rotate-left"></i></button>
                     </div>
-                    <audio id="alarm">
+                    <!-- <audio id="alarm">
                         <source src="./assets/alarms/bells.mp3" type="audio/mpeg">
-                      </audio>    
+                      </audio>     -->
                 </div> 
             </div>
         </div>
         <script src="pomodoro.js"></script>
-        
     </section>
 </body>
 </html>

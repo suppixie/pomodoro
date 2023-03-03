@@ -5,7 +5,8 @@ const longBreakButton = document.querySelector('input[value="long-break"]');
 const startButton = document.querySelector('#start');
 const pauseButton = document.querySelector('#pause');
 const resetButton = document.querySelector('#reset');
-const alarm = document.querySelector('#alarm');
+const alarmSelect = document.querySelector('#alarm-options')
+const alarm = new Audio();
 
 let countdown;
 let seconds = 25 * 60; // 25 minutes
@@ -17,7 +18,7 @@ function displayTimeLeft(seconds) {
   const remainderSeconds = seconds % 60;
   const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
   timerDisplay.textContent = display;
-  document.title = display;
+  // document.title = display;
 }
 
 function startTimer() {
@@ -39,7 +40,8 @@ function startTimer() {
     displayTimeLeft(seconds);
     if (seconds === 0) {
       clearInterval(countdown);
-      alarm.play();
+      playAlarm();
+      return;
     }
   }, 1000);
 }
@@ -74,6 +76,14 @@ startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', pauseTimer);
 resetButton.addEventListener('click', resetTimer);
 
+// changing the alarms
+
+function playAlarm() {
+  const alarmfile = alarmSelect.value;
+  if (alarmfile){
+    alarm.src= alarmFile;
+  alarm.play();
+}}
 // changing the theme of the website
 
 function themes (){
