@@ -84,6 +84,38 @@ function playAlarm() {
     alarm.src= alarmFile;
   alarm.play();
 }}
+
+
+// Task list
+
+const taskList = document.querySelector('#task-items');
+const newTaskInput = document.querySelector('#new-task');
+const addTaskButton = document.querySelector('#add-task');
+
+function createTask() {
+  const task = document.createElement('li');
+  task.innerHTML = `
+    <input type="checkbox" class="task-checkbox">
+    <span class="task-name">${newTaskInput.value}</span>
+    <button class="delete-task">Delete</button>
+  `;
+  taskList.appendChild(task);
+  newTaskInput.value = '';
+}
+
+addTaskButton.addEventListener('click', createTask);
+
+taskList.addEventListener('click', (e) => {
+  if (e.target.classList.contains('task-checkbox')) {
+    const taskName = e.target.nextElementSibling;
+    taskName.classList.toggle('completed');
+  }
+  if (e.target.classList.contains('delete-task')) {
+    e.target.parentNode.remove();
+  }
+});
+
+
 // changing the theme of the website
 
 function themes (){

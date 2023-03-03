@@ -175,7 +175,7 @@ header ul li a{
     border-radius: 15px;
 }
 
-.change-sounds-icon:focus + .sounds{
+.change-sounds-icon:focus + .sounds, .sounds:hover, .sounds:active{
     display: block;
     position: fixed;
     translate: 0% -40%;
@@ -184,6 +184,46 @@ header ul li a{
 .change-sounds-icon:focus {
     color: grey;
 }
+
+
+/* Task list  */
+
+.tasks {
+    background-color: rgba(35,40,48,255);
+    float: left;
+    margin:0 5vw;
+    display: none;
+    position:sticky;
+    min-height: 40vh;
+    max-width: 30vw;
+    padding: 10px;
+    border-radius: 15px;
+
+}
+
+.tasks-icon:focus +.tasks, .tasks:hover , .tasks:active{
+    display: block;
+    position: fixed;
+    translate: 0% -40%;
+}
+
+.tasks-icon:focus {
+    color: grey;
+}
+
+.completed {
+    text-decoration: line-through;
+  }
+  
+  .task-checkbox {
+    margin-right: 10px;
+  }
+  
+  .delete-task {
+    margin-left: 10px;
+  }
+  
+
 
 /* timer block css */
 
