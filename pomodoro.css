@@ -185,23 +185,36 @@ header ul li a{
     color: grey;
 }
 
+.sounds button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 5vh;
+    transition: 0.5s;
+    color: azure;
+    padding: 0 1vw;}
 
 /* Task list  */
 
-.tasks {
-    background-color: rgba(35,40,48,255);
+.tasks-section {
     float: left;
-    margin:0 5vw;
     display: none;
-    position:sticky;
-    min-height: 40vh;
-    max-width: 30vw;
-    padding: 10px;
+    width: 30vw;
+    margin:0 5vw;
     border-radius: 15px;
+    min-width: 300px;
+    position: absolute;
+    min-height: 40vh;
+    background-color: rgba(35,40,48,255);
+    padding: 10px;
+
+    /*
+    position:sticky;
+   */
 
 }
 
-.tasks-icon:focus +.tasks, .tasks:hover , .tasks:active{
+.tasks-icon:focus +.tasks-section, .tasks-section:hover , .tasks-section:active{
     display: block;
     position: fixed;
     translate: 0% -40%;
@@ -211,19 +224,72 @@ header ul li a{
     color: grey;
 }
 
-.completed {
-    text-decoration: line-through;
+#myUL {
+    margin: 0;
+    padding: 0;
   }
   
-  .task-checkbox {
-    margin-right: 10px;
-  }
-  
-  .delete-task {
-    margin-left: 10px;
+  /* Style the list items */
+  #myUL li {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    margin: 1.5vh 0;
+    padding: 2% 10%;
+    list-style-type: none;
+    font-size: 16px;
+    transition: 0.2s;
+    
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
   
 
+  /* Darker background-color on hover */
+  #myUL li:hover {
+    background: #4a494972;
+
+
+  }
+  
+  /* When clicked on, add a background color and strike out text */
+  #myUL li.checked {
+    color: #fff;
+    text-decoration: line-through;
+  }
+  
+  /* Add a "checked" mark when clicked on */
+  #myUL li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+  
+  /* Style the close button */
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+  
+  .close:hover {
+    background-color: #f44336;
+    color: white;
+  }
+  
 
 /* timer block css */
 

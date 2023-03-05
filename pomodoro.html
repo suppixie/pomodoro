@@ -78,36 +78,41 @@
                 <!-- change sounds settings -->
 
                 <button class="change-sounds-icon"><i class="fa-solid fa-music"></i></button>
+                
                 <div class="sounds">
                     <h4>Sounds</h4>
-                    <span class="sc-ewSTlh kZdbCU">Delta Waves</span><audio id="delta-waves" src="https://pub-ba7c81337874432dbe9c5b19d2cbd787.r2.dev/Delta%20Waves%20(looped).mp3" loop="" preload="none"><source src="https://pub-ba7c81337874432dbe9c5b19d2cbd787.r2.dev/Delta%20Waves%20(looped).mp3" type="audio/mpeg">Your browser does not support the audio tag.</audio><div class="volume-toggle"><span><svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="volume-toggle-icon dark"></svg></span></div>
-                    </span>
+                    <div>
                     <p>Street noise</p>
+                        <audio src="track1.mp3"></audio>
+                          <button class="play"><i class="fa-solid fa-music-note"></i></button>
+                          <button class="pause">Pause</button>
+                          <div>
+                            <i class="fa-solid fa-volume"></i>
+                          <input type="range" class="volume" min="0" max="1" step="0.1" value="1">
+                        </div>
+                      </div>
+                      
+                      
                     <p>rain</p>
                     <p>white noise</p>
                 </div>
                 <button class="tasks-icon"><i class="fa-solid fa-list-check"></i></button>
-                <div class="tasks">
-                    <div id="task-list">
-                        <h2>Task List</h2>
-                        <input type="text" id="new-task" placeholder="Add new task">
-                        <button id="add-task">Add Task</button>
-                        <ul id="task-items"></ul>
-                      </div>
+                <div class="tasks-section">
+                    <h3>Tasks</h3>
+                    <input type="text" id="myInput" placeholder="Title...">
+                    <span onclick="newElement()" class="addBtn">Add</span>
+                    <hr>
+                    <ul id="myUL">
+                    </ul>
                 </div>
             </div>
             <div class="timer-block">
-                <!-- task name section-->
-                <!-- task name display -->
-                <!-- session number -->
                 <!-- tabs for time and breaks-->
                 <div class="tabs">
-                    <label id="pom"><input type="radio" name="timer-type" value="pomodoro" checked>Pomodoro</label>
-                    <label id="sb"><input type="radio" name="timer-type" value="short-break">Short Break</label>
-                    <label id="lb"><input type="radio" name="timer-type" value="long-break">Long Break</label>
-                    <!-- <label name="timer-type" value="pomodoro">Work</label>
-                    <label name="timer-type" value="short-break">Short Break</label>
-                    <label name="timer-type" value="long-break">Long Break</label> -->
+                    <label id="pom"><input type="radio" hidden name="timer-type" value="pomodoro" checked>Pomodoro</label>
+                    <label id="sb"><input type="radio" hidden name="timer-type" value="short-break">Short Break</label>
+                    <label id="lb"><input type="radio" hidden name="timer-type" value="long-break">Long Break</label>
+               
                 </div>
                 <hr>
                 <!-- timer -->
@@ -116,6 +121,7 @@
                     <div class="time-display">
                         <h2 id="time-left">25:00</h2> 
                     </div>
+                <!-- session number -->
 
                     <!-- controls to start , pause and reset -->
                     <div class="timer-controls">
@@ -123,9 +129,7 @@
                         <button id="stop"><i class="fa-solid fa-pause"></i></button>
                         <button id="reset"><i class="fa-solid fa-rotate-left"></i></button>
                     </div>
-                    <!-- <audio id="alarm">
-                        <source src="./assets/alarms/bells.mp3" type="audio/mpeg">
-                      </audio>     -->
+
                 </div> 
             </div>
         </div>

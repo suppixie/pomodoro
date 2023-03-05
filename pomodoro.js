@@ -54,21 +54,21 @@ function resetTimer() {
   clearInterval(countdown);
   if (timerType === 'pomodoro') {
     seconds = 25 * 60;
-    } 
+  }
   else if (timerType === 'short-break') {
     seconds = 5 * 60;
-    } 
+  }
   else if (timerType === 'long-break') {
     seconds = 15 * 60;
-    }
+  }
   displayTimeLeft(seconds);
 }
-    
+
 function handleTimerTypeChange() {
-    timerType = this.value;
-    resetTimer();
+  timerType = this.value;
+  resetTimer();
 }
-    
+
 pomodoroButton.addEventListener('change', handleTimerTypeChange);
 shortBreakButton.addEventListener('change', handleTimerTypeChange);
 longBreakButton.addEventListener('change', handleTimerTypeChange);
@@ -80,77 +80,89 @@ resetButton.addEventListener('click', resetTimer);
 
 function playAlarm() {
   const alarmfile = alarmSelect.value;
-  if (alarmfile){
-    alarm.src= alarmFile;
-  alarm.play();
-}}
-
-
-// Task list
-
-const taskList = document.querySelector('#task-items');
-const newTaskInput = document.querySelector('#new-task');
-const addTaskButton = document.querySelector('#add-task');
-
-function createTask() {
-  const task = document.createElement('li');
-  task.innerHTML = `
-    <input type="checkbox" class="task-checkbox">
-    <span class="task-name">${newTaskInput.value}</span>
-    <button class="delete-task">Delete</button>
-  `;
-  taskList.appendChild(task);
-  newTaskInput.value = '';
+  if (alarmfile) {
+    alarm.src = alarmFile;
+    alarm.play();
+  }
 }
 
-addTaskButton.addEventListener('click', createTask);
 
-taskList.addEventListener('click', (e) => {
-  if (e.target.classList.contains('task-checkbox')) {
-    const taskName = e.target.nextElementSibling;
-    taskName.classList.toggle('completed');
-  }
-  if (e.target.classList.contains('delete-task')) {
-    e.target.parentNode.remove();
-  }
-});
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  var hr = document.createElement("hr");
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+    document.getElementById("myUL").appendChild(hr);
 
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+  var list = document.getElementById('myUL')
+  console.log(list)
+  list.addEventListener('click', function (ev) {
+    if (ev.target.tagName === 'LI') {
+      ev.target.classList.toggle('checked');
+    }
+  }, false);
+  const closeFunction = document.getElementsByClassName("close");
+  var i;
+  for (i = 0; i < closeFunction.length; i++) {
+    closeFunction[i].onclick = function () {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
 
 // changing the theme of the website
 
-function themes (){
-    const themeSelector = document.querySelector("#theme-options")
-    const selectedImg=  themeSelector.value;
-    document.body.style.backgroundImage = `url(${selectedImg})`;
-    themeSelector.addEventListener('change', themes);
+function themes() {
+  const themeSelector = document.querySelector("#theme-options")
+  const selectedImg = themeSelector.value;
+  document.body.style.backgroundImage = `url(${selectedImg})`;
+  themeSelector.addEventListener('change', themes);
 }
 
-    const themeSelector = document.querySelector("#theme-options")
-    selector.addEventListener('change', themes);
-
-
-// function changeVideo() {
-//     const video = document.querySelector('#bg-video');
-//     const selector = document.querySelector('#theme-options');
-//     const selectedVideo = selector.value;
-//     const source = document.querySelector('#bg-video source');
-//     source.src = selectedVideo;
-//     video.load();
-//   }
-
-//   const selector = document.querySelector('#theme-options');
-//   selector.addEventListener('change', changeVideo);
+const themeSelector = document.querySelector("#theme-options")
+selector.addEventListener('change', themes);
 
 
 
+// select Background sounds
 
-// function alarms (){
-//     const sounds = document.querySelector('#sound');
-//     const alarmSelector = document.querySelector("#alarm-options");
-//     const selectedSound=  alarmSelector.value;
-//     sounds.load(selectedSound)
-//     alarmSelector.addEventListener('change', alarms);
-// }
+const tracks = document.querySelectorAll("audio");
 
-//     const alarmSelector = document.querySelector("#alarm-options")
-//     selector.addEventListener('change', themes);
+tracks.forEach((track) => {
+  const playBtn = track.parentElement.querySelector(".play");
+  const pauseBtn = track.parentElement.querySelector(".pause");
+  const volumeSlider = track.parentElement.querySelector(".volume");
+
+  playBtn.addEventListener("click", () => {
+    if (track.paused) {
+      track.play();
+      playBtn.textContent = "";
+    } else {
+      track.pause();
+      playBtn.textContent = "";
+    }
+  });
+
+  pauseBtn.addEventListener("click", () => {
+    track.pause();
+    playBtn.textContent = "";
+  });
+
+  volumeSlider.addEventListener("input", () => {
+    track.volume = volumeSlider.value;
+  });
+});
