@@ -1,2 +1,2 @@
-# pomodoro-diary
+# pomodoro
 A student productivity website - pomodoro
