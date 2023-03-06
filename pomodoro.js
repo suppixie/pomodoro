@@ -140,29 +140,40 @@ selector.addEventListener('change', themes);
 
 // select Background sounds
 
-const tracks = document.querySelectorAll("audio");
+// get all audio elements
+const audios = document.getElementsByClassName('track');
 
-tracks.forEach((track) => {
-  const playBtn = track.parentElement.querySelector(".play");
-  const pauseBtn = track.parentElement.querySelector(".pause");
-  const volumeSlider = track.parentElement.querySelector(".volume");
+// add event listeners to all control buttons and volume sliders
+document.querySelectorAll('button[data-play], input[data-volume]').forEach(el => {
+  el.addEventListener('input', function() {
+    const audio = document.getElementById(this.dataset.audio);
 
-  playBtn.addEventListener("click", () => {
-    if (track.paused) {
-      track.play();
-      playBtn.textContent = "";
-    } else {
-      track.pause();
-      playBtn.textContent = "";
+    if (this.dataset.play) {
+      // play or pause the audio element
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    } else if (this.dataset.volume) {
+      // set the volume for the audio element
+      audio.volume = this.value;
     }
   });
-
-  pauseBtn.addEventListener("click", () => {
-    track.pause();
-    playBtn.textContent = "";
-  });
-
-  volumeSlider.addEventListener("input", () => {
-    track.volume = volumeSlider.value;
-  });
 });
+
+// const audio = document.getElementsByClassName("track")
+// const playBtn = document.getElementById("play")
+
+// playBtn.addEventListener("click", function() {
+//   audio.play();
+// });
+
+// function play() {
+//   if (audio.paused){
+//   audio.play();}
+//   else {
+//     audio.pause()
+//   }
+  
+// }

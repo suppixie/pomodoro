@@ -28,7 +28,7 @@ header {
     height:8vh;
     display: flex;
     justify-content: space-between;
-    padding: 1vh 2vw;
+    padding: 1vh 1.2vw;
     flex-wrap: nowrap;
     align-items: center;
     /* background-color: rgba(57, 59, 68, 0.85); */
@@ -194,6 +194,14 @@ header ul li a{
     color: azure;
     padding: 0 1vw;}
 
+.sound-name {
+    display: flex;
+}
+
+.sound-controls {
+    display: flex;
+}
+
 /* Task list  */
 
 .tasks-section {
@@ -295,11 +303,12 @@ header ul li a{
 
 .timer-block {
     display: block;
-    width: 30vw;
+    width: 25vw;
+    max-width: 30vw;
     max-height: 25vh;
     border-radius: 20px;
     text-align: center;
-    position: relative;
+    position: fixed;
     top: 2vh;
     right: 1vw;
     /* translate: 120% 120%; */
@@ -341,13 +350,13 @@ header ul li a{
 }
 .time-display {
     font-size: 8vh;
-    display: flex;
+    /* display: flex; */
 }
 
 .timer-controls {
     padding-top: 6%;
-    align-items:start;
-    display: block;
+    padding-left: 5%;
+    align-items: center;
     /* margin:0 8vw; */
     /* justify-content: space-between; */
 }

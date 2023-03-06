@@ -7,7 +7,7 @@
     <title>pomodoro</title>
     <link rel="stylesheet" href="pomodoro.css">
     <script src="https://kit.fontawesome.com/ce90223bac.js" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -15,11 +15,11 @@
         <header>
             <!-- <img src="" width="100%"> -->
             <h2>Pomodoro</h2>
-            <ul>
+            <!-- <ul>
                 <li><a href="#">Pomodoro</a></li>
                 <li><a href="#">Moodboard</a></li>
                 <li><a href="#">Diary</a></li>
-            </ul>
+            </ul> -->
         </header>
         <div class="pomodoro">
             <div class="settings">
@@ -81,20 +81,24 @@
                 
                 <div class="sounds">
                     <h4>Sounds</h4>
-                    <div>
-                    <p>Street noise</p>
-                        <audio src="track1.mp3"></audio>
-                          <button class="play"><i class="fa-solid fa-music-note"></i></button>
-                          <button class="pause">Pause</button>
-                          <div>
-                            <i class="fa-solid fa-volume"></i>
-                          <input type="range" class="volume" min="0" max="1" step="0.1" value="1">
+                    <div class="sound-item">
+                        <div class="sound-name">
+                        <p>Rain</p>
+                            <audio class="track" src="./assets/sounds/soft-rain-ambient-111154.mp3"></audio>
+                            <button onclick="play()" id="play"><i class="fas fa-volume-up"></i></button>
+                            <!-- <button class="pause"><i class="fa-solid fa-pause"></i></button> -->
                         </div>
-                      </div>
-                      
-                      
-                    <p>rain</p>
-                    <p>white noise</p>
+                        <div class="sound-controls">
+                            <i class="fa-solid fa-volume"></i>
+                            <input type="range" data-volume="sound-volume" class="volume" min="0" max="1" step="0.1" value="1">
+                        </div>
+                    </div> 
+                    <div class="sound-item">
+                        <p>Forest Stream</p>
+                    </div>
+                    <div class="sound-item">
+                        <p>Forest Stream</p>
+                    </div>
                 </div>
                 <button class="tasks-icon"><i class="fa-solid fa-list-check"></i></button>
                 <div class="tasks-section">
@@ -106,7 +110,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="timer-block">
+            <div class="timer-block" draggable="true">
                 <!-- tabs for time and breaks-->
                 <div class="tabs">
                     <label id="pom"><input type="radio" hidden name="timer-type" value="pomodoro" checked>Pomodoro</label>
@@ -127,7 +131,7 @@
                     <div class="timer-controls">
                         <button id="start"><i class="fa-solid fa-play"></i></button>
                         <button id="stop"><i class="fa-solid fa-pause"></i></button>
-                        <button id="reset"><i class="fa-solid fa-rotate-left"></i></button>
+                        <!-- <button id="reset"><i class="fa-solid fa-rotate-left"></i></button> -->
                     </div>
 
                 </div> 
