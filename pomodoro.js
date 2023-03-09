@@ -12,6 +12,17 @@ let countdown;
 let seconds = 25 * 60; // 25 minutes
 let timerType = 'pomodoro';
 let pomodoroCount = 0;
+let initial=true;
+let pomoTime=25;
+let sBreak=5;
+let lBreak=15;
+
+function setTime(){
+  pomoTime= document.getElementById("workinput").value;
+  sBreak = document.getElementById("sbreakinput").value;
+  lBreak = document.getElementById("lbreakinput").value;
+  resetTimer();
+}
 
 function displayTimeLeft(seconds) {
   const minutes = Math.floor(seconds / 60);
@@ -20,21 +31,24 @@ function displayTimeLeft(seconds) {
   timerDisplay.textContent = display;
   // document.title = display;
 }
-
-function startTimer() {
+function setTimer(){
   clearInterval(countdown);
   if (timerType === 'pomodoro') {
-    seconds = 25 * 60;
+    seconds = pomoTime * 60;
     pomodoroCount++;
     if (pomodoroCount % 4 === 0) {
-      seconds = 15 * 60; // long break every 4th pomodoro
+      seconds = lBreak * 60; // long break every 4th pomodoro
     }
   } else if (timerType === 'short-break') {
-    seconds = 5 * 60;
+    seconds = sBreak * 60;
   } else if (timerType === 'long-break') {
-    seconds = 15 * 60;
+    seconds = lBreak * 60;
   }
-  displayTimeLeft(seconds);
+  startTimer(seconds)
+}
+
+function startTimer(seconds) {
+    displayTimeLeft(seconds);
   countdown = setInterval(() => {
     seconds--;
     displayTimeLeft(seconds);
@@ -45,24 +59,43 @@ function startTimer() {
     }
   }, 1000);
 }
+function resumeTimer(){
+  clearInterval(countdown);
+  var currTime=timerDisplay.textContent.split(":");
+  var sec=(Number(currTime[0])*60)+(Number(currTime[1]));
+  startTimer(sec)
+}
+
+function toggleTimer(){
+  pauseButton.style.display="block";
+  startButton.style.display="none";
+  if(initial){
+    setTimer();
+  }else resumeTimer();
+}
 
 function pauseTimer() {
   clearInterval(countdown);
+  initial=false;
+  pauseButton.style.display="none";
+  startButton.style.display="block";
 }
 
-// function resetTimer() {
-//   clearInterval(countdown);
-//   if (timerType === 'pomodoro') {
-//     seconds = 25 * 60;
-//   }
-//   else if (timerType === 'short-break') {
-//     seconds = 5 * 60;
-//   }
-//   else if (timerType === 'long-break') {
-//     seconds = 15 * 60;
-//   }
-//   displayTimeLeft(seconds);
-// }
+
+function resetTimer() {
+  initial=true;
+  clearInterval(countdown);
+  if (timerType === 'pomodoro') {
+    seconds = pomoTime * 60;
+  }
+  else if (timerType === 'short-break') {
+    seconds = sBreak * 60;
+  }
+  else if (timerType === 'long-break') {
+    seconds = lBreak * 60;
+  }
+    displayTimeLeft(seconds);
+}
 
 function handleTimerTypeChange() {
   timerType = this.value;
@@ -72,9 +105,9 @@ function handleTimerTypeChange() {
 pomodoroButton.addEventListener('change', handleTimerTypeChange);
 shortBreakButton.addEventListener('change', handleTimerTypeChange);
 longBreakButton.addEventListener('change', handleTimerTypeChange);
-startButton.addEventListener('click', startTimer);
+startButton.addEventListener('click', toggleTimer);
 pauseButton.addEventListener('click', pauseTimer);
-// resetButton.addEventListener('click', resetTimer);
+resetButton.addEventListener('click', resetTimer);
 
 //to drag the pomodoro block
 
@@ -82,18 +115,31 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function drag(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
+function drag(event) {
+  var style = window.getComputedStyle(event.target, null);
+    event.dataTransfer.setData("text/plain",
+    (parseInt(style.getPropertyValue("left"),10) - event.clientX) + ',' + (parseInt(style.getPropertyValue("top"),10) - event.clientY));
+
 }
 
-function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+function drop(event) {
+  var offset = event.dataTransfer.getData("text/plain").split(',');
+  var dm = document.getElementById('dragme');
+  dm.style.left = (event.clientX + parseInt(offset[0],10)) + 'px';
+  dm.style.top = (event.clientY + parseInt(offset[1],10)) + 'px';
+  event.preventDefault();
+  return false;
+
 }
+function drag_over(event) { 
+  event.preventDefault(); 
+  return false; 
+} 
 
-
-
+var dm = document.getElementById('dragme'); 
+dm.addEventListener('dragstart',drag_start,false); 
+document.body.addEventListener('dragover',drag_over,false); 
+document.body.addEventListener('drop',drop,false); 
 
 // changing the alarms
 
@@ -146,35 +192,32 @@ function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
   var t = document.createTextNode(inputValue);
-  var hr = document.createElement("hr");
   li.appendChild(t);
   if (inputValue === '') {
     alert("You must write something!");
   } else {
     document.getElementById("myUL").appendChild(li);
-    document.getElementById("myUL").appendChild(hr);
 
   }
   document.getElementById("myInput").value = "";
 
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
+  li.className="taskItem";
   span.className = "close";
   span.appendChild(txt);
   li.appendChild(span);
-  var list = document.getElementById('myUL')
-  console.log(list)
-  list.addEventListener('click', function (ev) {
-    if (ev.target.tagName === 'LI') {
-      ev.target.classList.toggle('checked');
-    }
-  }, false);
+  var list = document.getElementsByClassName("taskItem");
+  for (i = 0; i < list.length; i++) {
+    list[i].onclick=function (){this.classList.toggle('checked');}
+  }
   const closeFunction = document.getElementsByClassName("close");
   var i;
   for (i = 0; i < closeFunction.length; i++) {
     closeFunction[i].onclick = function () {
       var div = this.parentElement;
       div.style.display = "none";
+
     }
   }
 }
