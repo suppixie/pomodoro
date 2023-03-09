@@ -86,6 +86,9 @@ header ul li a{
     color: azure;
 
 }
+i {
+    cursor: pointer;
+}
 
 /* general settings of timer and theme */
 

@@ -50,19 +50,19 @@ function pauseTimer() {
   clearInterval(countdown);
 }
 
-function resetTimer() {
-  clearInterval(countdown);
-  if (timerType === 'pomodoro') {
-    seconds = 25 * 60;
-  }
-  else if (timerType === 'short-break') {
-    seconds = 5 * 60;
-  }
-  else if (timerType === 'long-break') {
-    seconds = 15 * 60;
-  }
-  displayTimeLeft(seconds);
-}
+// function resetTimer() {
+//   clearInterval(countdown);
+//   if (timerType === 'pomodoro') {
+//     seconds = 25 * 60;
+//   }
+//   else if (timerType === 'short-break') {
+//     seconds = 5 * 60;
+//   }
+//   else if (timerType === 'long-break') {
+//     seconds = 15 * 60;
+//   }
+//   displayTimeLeft(seconds);
+// }
 
 function handleTimerTypeChange() {
   timerType = this.value;
@@ -74,7 +74,7 @@ shortBreakButton.addEventListener('change', handleTimerTypeChange);
 longBreakButton.addEventListener('change', handleTimerTypeChange);
 startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', pauseTimer);
-resetButton.addEventListener('click', resetTimer);
+// resetButton.addEventListener('click', resetTimer);
 
 //to drag the pomodoro block
 
@@ -121,28 +121,23 @@ selector.addEventListener('change', themes);
 
 // select Background sounds
 
-var ppButton = document.getElementById("ppBtn");
-ppButton.addEventListener("click", playPause);
-tracks = document.getElementById("track");
+const ppBtn = document.getElementById("ppBtn").addEventListener("click",playPause());
+const tracks = document.getElementById("track");
 function playPause() { 
-    if (tracks.paused) {
-        tracks.play();
-        ppButton.innerHTML = "Pause";
-        }
-    else  {
-        tracks.pause(); 
-        ppButton.innerHTML = "Play";
-        }
-} 
-function thisVolume(volume_value)
-    {
-        var tracks = document.getElementById("track");
-        document.getElementById("vol").innerHTML=volume_value;
-        tracks.volume = volume_value / 100;
-        
-    }
+  if (tracks.paused) {
+  tracks.play();
+  ppButton.innerHTML = "Pause";
+  }
+  else  {
+  tracks.pause(); 
+  ppButton.innerHTML = "Play";
+  }
+  } 
 
-
+  function thisVolume(volume_value){
+  var tracks = document.getElementById("track");
+  document.getElementById("vol").innerHTML=volume_value;
+  tracks.volume = volume_value / 100;}
 
 
 //add a task in the task list
