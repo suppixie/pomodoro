@@ -78,7 +78,7 @@ header ul li a{
 }
 .settings button {
     background-color: transparent;
-    font-size: 4vh;
+    font-size:4vh;
     border: none;
     display:block;
     margin: 1.1vw;
@@ -97,14 +97,15 @@ header ul li a{
     max-height: 40vh;
     min-width: 25vw;
     max-width: 40vw;
-    padding: 1.5%;
+    padding: 1.5vw;
     border-radius: 15px;
     font-size: 2vh;
     transition: 0.5s;
+    align-items: center;
 }
 
 .general-settings h3 {
-    font-size: 2.5vh;
+    font-size: 3vh;
     padding-bottom: 2%;
     font-weight:bold;
 }
@@ -115,7 +116,7 @@ header ul li a{
 .general-settings-icon:focus + .general-settings, .general-settings:hover , .general-settings:active{
     display: block;
     position: fixed;
-    translate: 0% -32%;
+    translate: 0% -25%;
 
 }
 .general-settings-icon:focus {
@@ -124,27 +125,27 @@ header ul li a{
 .general-settings div {
     display: flex;
     justify-content:space-between;
+    align-items: center;
 }
 
 .general-settings .pinput {
     display: block;
     padding-right: 2%;
-    max-width: 8vw;
+    min-width: 8vw;
 }
 .general-settings .pinput * {
-    padding-bottom: 10%;
+    padding-bottom: 8%;
 }
 .general-settings #workinput, #sbreakinput , #lbreakinput {
     color: azure;
-    border-radius: 5%;
-    border: 1px grey solid;
+    border-radius: 5px;
+    border: 1.5px grey solid;
     background-color: rgba(35,40,48,255);
-    appearance: none;
-    width: 5.5vw;
+    min-width: 5.5vw;
     height: 3.5vh;
     background-clip: padding-box;
     bottom: 0;
-    padding:2% 5%;
+    padding:1% 5%;
 }
 
 .general-settings hr{
@@ -152,14 +153,14 @@ header ul li a{
 }
 .general-settings .theme, .alarms{
     display: flex;
-    padding-bottom: 0.8vh;
     align-items: center;
 }
 
 .theme select , .alarms select {
+    align-items: center;
     height: 3vh;
     width: 10vw;
-    font-size: 0.9rem;
+    font-size: 2.5vh;
 }
 /* change sounds */
 
@@ -170,15 +171,16 @@ header ul li a{
     display: none;
     position:sticky;
     min-height: 40vh;
-    max-width: 30vw;
-    padding: 10px;
+    min-width: 25vw;
+    max-width: 40vw;
+    padding: 1.5vw;
     border-radius: 15px;
 }
 
 .change-sounds-icon:focus + .sounds, .sounds:hover, .sounds:active{
     display: block;
     position: fixed;
-    translate: 0% -40%;
+    translate: 0% -20%;
 }
 
 .change-sounds-icon:focus {
@@ -189,7 +191,7 @@ header ul li a{
     cursor: pointer;
     background-color: transparent;
     border: none;
-    font-size: 5vh;
+    font-size: 4vh;
     transition: 0.5s;
     color: azure;
     padding: 0 1vw;}
@@ -207,15 +209,13 @@ header ul li a{
 .tasks-section {
     float: left;
     display: none;
-    width: 30vw;
+    min-width: 25vw;
     margin:0 5vw;
     border-radius: 15px;
-    min-width: 300px;
     position: absolute;
     min-height: 40vh;
     background-color: rgba(35,40,48,255);
-    padding: 10px;
-
+    padding: 1.5vw;
     /*
     position:sticky;
    */
@@ -225,15 +225,40 @@ header ul li a{
 .tasks-icon:focus +.tasks-section, .tasks-section:hover , .tasks-section:active{
     display: block;
     position: fixed;
-    translate: 0% -40%;
+    translate: 0% -20%;
 }
 
 .tasks-icon:focus {
     color: grey;
 }
 
+#myInput {
+    margin-top: 2vh;
+    background: transparent;
+    color: azure;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    padding: 0.5vh;
+    margin-right: 1.4vw;
+    width: 18vw;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.571);
+    cursor: text;
+  }
+
+.tasks-section span {
+    background-color: #73737376;
+    padding:0.5vh 2vh;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.tasks-section .addBtn:hover {
+    background-color: #5b5b5b76;
+
+}
+
 #myUL {
-    margin: 0;
+    margin-top: 1vh;
     padding: 0;
   }
   
@@ -244,10 +269,9 @@ header ul li a{
     justify-content: space-between;
     cursor: pointer;
     position: relative;
-    margin: 1.5vh 0;
-    padding: 2% 10%;
+    padding: 1.5vh 0.5vw;
     list-style-type: none;
-    font-size: 16px;
+    font-size:2.5vh ;
     transition: 0.2s;
     
     /* make the list items unselectable */
@@ -269,17 +293,19 @@ header ul li a{
   #myUL li.checked {
     color: #fff;
     text-decoration: line-through;
+    padding-left: 12%;
   }
   
   /* Add a "checked" mark when clicked on */
   #myUL li.checked::before {
+    
     content: '';
     position: absolute;
     border-color: #fff;
     border-style: solid;
     border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
+    top: 1.4vh;
+    left: 1vw;
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
@@ -289,8 +315,7 @@ header ul li a{
   .close {
     position: absolute;
     right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
+    padding:16px;
   }
   
   .close:hover {

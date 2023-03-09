@@ -76,16 +76,76 @@ startButton.addEventListener('click', startTimer);
 pauseButton.addEventListener('click', pauseTimer);
 resetButton.addEventListener('click', resetTimer);
 
+//to drag the pomodoro block
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+
+
+
+
 // changing the alarms
 
 function playAlarm() {
-  const alarmfile = alarmSelect.value;
-  if (alarmfile) {
+  const alarmFile = alarmSelect.value;
+  if (alarmFile) {
     alarm.src = alarmFile;
     alarm.play();
   }
 }
 
+// changing the theme of the website
+
+function themes() {
+  const themeSelector = document.querySelector("#theme-options")
+  const selectedImg = themeSelector.value;
+  document.body.style.backgroundImage = `url(${selectedImg})`;
+  themeSelector.addEventListener('change', themes);
+}
+
+const themeSelector = document.querySelector("#theme-options")
+selector.addEventListener('change', themes);
+
+
+
+// select Background sounds
+
+var ppButton = document.getElementById("ppBtn");
+ppButton.addEventListener("click", playPause);
+tracks = document.getElementById("track");
+function playPause() { 
+    if (tracks.paused) {
+        tracks.play();
+        ppButton.innerHTML = "Pause";
+        }
+    else  {
+        tracks.pause(); 
+        ppButton.innerHTML = "Play";
+        }
+} 
+function thisVolume(volume_value)
+    {
+        var tracks = document.getElementById("track");
+        document.getElementById("vol").innerHTML=volume_value;
+        tracks.volume = volume_value / 100;
+        
+    }
+
+
+
+
+//add a task in the task list
 
 function newElement() {
   var li = document.createElement("li");
@@ -124,43 +184,7 @@ function newElement() {
   }
 }
 
-// changing the theme of the website
 
-function themes() {
-  const themeSelector = document.querySelector("#theme-options")
-  const selectedImg = themeSelector.value;
-  document.body.style.backgroundImage = `url(${selectedImg})`;
-  themeSelector.addEventListener('change', themes);
-}
-
-const themeSelector = document.querySelector("#theme-options")
-selector.addEventListener('change', themes);
-
-
-
-// select Background sounds
-
-// get all audio elements
-const audios = document.getElementsByClassName('track');
-
-// add event listeners to all control buttons and volume sliders
-document.querySelectorAll('button[data-play], input[data-volume]').forEach(el => {
-  el.addEventListener('input', function() {
-    const audio = document.getElementById(this.dataset.audio);
-
-    if (this.dataset.play) {
-      // play or pause the audio element
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    } else if (this.dataset.volume) {
-      // set the volume for the audio element
-      audio.volume = this.value;
-    }
-  });
-});
 
 // const audio = document.getElementsByClassName("track")
 // const playBtn = document.getElementById("play")

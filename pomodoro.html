@@ -21,7 +21,7 @@
                 <li><a href="#">Diary</a></li>
             </ul> -->
         </header>
-        <div class="pomodoro">
+        <div class="pomodoro" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="settings">
                 <button class="general-settings-icon"><i class="fa-solid fa-gear"></i></button>
                 <div class="general-settings">
@@ -80,37 +80,40 @@
                 <button class="change-sounds-icon"><i class="fa-solid fa-music"></i></button>
                 
                 <div class="sounds">
-                    <h4>Sounds</h4>
-                    <div class="sound-item">
+                    <h3>Sounds</h3>
+                    <div class="sound-item" id="rainsound">
                         <div class="sound-name">
                         <p>Rain</p>
-                            <audio class="track" src="./assets/sounds/soft-rain-ambient-111154.mp3"></audio>
-                            <button onclick="play()" id="play"><i class="fas fa-volume-up"></i></button>
+                            <audio class="track" src="./assets/sounds/soft-rain-ambient-111154.mp3" type="audio/mp3"></audio>
+                            <button id="ppBtn"><i class="fas fa-volume-up"></i></button>
                             <!-- <button class="pause"><i class="fa-solid fa-pause"></i></button> -->
                         </div>
                         <div class="sound-controls">
-                            <i class="fa-solid fa-volume"></i>
-                            <input type="range" data-volume="sound-volume" class="volume" min="0" max="1" step="0.1" value="1">
+                            <!-- <i class="fa-solid fa-volume"></i> -->
+                            <input type="range" class="volume" min="0" max="100" step="1" value="0.5" oninput="thisVolume(this.value)" onchange="thisVolume(this.value)">
+                            <div class="vol"></div>
                         </div>
                     </div> 
-                    <div class="sound-item">
+                    <!-- <div class="sound-item">
                         <p>Forest Stream</p>
                     </div>
                     <div class="sound-item">
                         <p>Forest Stream</p>
-                    </div>
+                    </div> -->
                 </div>
                 <button class="tasks-icon"><i class="fa-solid fa-list-check"></i></button>
                 <div class="tasks-section">
                     <h3>Tasks</h3>
-                    <input type="text" id="myInput" placeholder="Title...">
+                    <input type="text" id="myInput" placeholder="What are you working on?">
                     <span onclick="newElement()" class="addBtn">Add</span>
-                    <hr>
                     <ul id="myUL">
                     </ul>
                 </div>
             </div>
-            <div class="timer-block" draggable="true">
+
+            <!-- timer block -->
+
+            <div class="timer-block" draggable="true" ondragstart="drag(event)">
                 <!-- tabs for time and breaks-->
                 <div class="tabs">
                     <label id="pom"><input type="radio" hidden name="timer-type" value="pomodoro" checked>Pomodoro</label>
