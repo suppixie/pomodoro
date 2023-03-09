@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="pomodoro.css">
     <script src="https://kit.fontawesome.com/ce90223bac.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="pomodoro.js"></script>
 </head>
-<body ondragover="drag_over(event)" ondrop="drop(event)">
+<body>
 
     <section id="bg">
         <header>
@@ -21,7 +22,7 @@
                 <li><a href="#">Diary</a></li>
             </ul> -->
         </header>
-        <div class="pomodoro">
+        <div class="pomodoro" ondrop="drop(event)" ondragover="allowDrop(event)">
             <div class="settings">
                 <button class="general-settings-icon"><i class="fa-solid fa-gear"></i></button>
                 <div class="general-settings">
@@ -43,10 +44,9 @@
                         <input type="number" id="lbreakinput" value="minutes" step="1" min="1" max="90">
                         <p style="color: rgb(175, 175, 175);">minutes</p>
                     </div>
-                    <span onclick="setTime()" class="addBtn">Set</span>
                     </div>
                     <hr>
-                    
+
                     <!-- change themes in general settings -->
                     <div class="theme">
                         <h3>Select Theme</h3>
@@ -78,31 +78,104 @@
                 </div>
 
                 <!-- change sounds settings -->
-<!-- 
+
                 <button class="change-sounds-icon"><i class="fa-solid fa-music"></i></button>
                 
                 <div class="sounds">
                     <h3>Sounds</h3>
-                    <div class="sound-item" id="rainsound">
+                    <div class="sound-item">
                         <div class="sound-name">
-                        <p>Rain</p>
-                            <audio id="track" src="./assets/sounds/soft-rain-ambient-111154.mp3" type="audio/mp3"></audio>
-                            <button id="ppBtn"><i class="fas fa-volume-up"></i></button> -->
-                            <!-- <button class="pause"><i class="fa-solid fa-pause"></i></button> -->
-                        <!-- </div>
-                        <div class="sound-controls"> -->
-                            <!-- <i class="fa-solid fa-volume"></i> -->
-                            <!-- <input type="range" class="volume" min="0" max="100" step="1" value="0.5" oninput="thisVolume(this.value)" onchange="thisVolume(this.value)">
-                            <div id="vol"></div>
+                            <p>Rain</p>
+                            <button class="audiobuttons" id="playButton1"><i class="fa-solid fa-play"></i></button>
+                            <audio loop class="audiofiles" id="audio1" src="./assets/sounds/soft-rain-ambient-111154.mp3" type="audio/mp3"></i></audio>
                         </div>
-                    </div>  -->
-                    <!-- <div class="sound-item">
-                        <p>Forest Stream</p>
+                        <div class="sound-volume">
+                            <input type="range" class="volume" min="0" max="100" step="1" value="60" oninput="thisVolume(this.value)" onchange="thisVolume(this.value)">
+                            <span id="vol"></span>
+                        </div>
                     </div>
                     <div class="sound-item">
-                        <p>Forest Stream</p>
-                    </div> 
-                </div>-->
+                        <div class="sound-name">
+                            <p>Forest Stream</p>
+                            <button class="audiobuttons" id="playButton2"><i class="fa-solid fa-play"></i></button>
+                            <audio loop class="audiofiles" id="audio2" src="./assets/sounds/forest-stream.mp3" type="audio/mp3"></i></audio>
+                        </div>
+                        <div class="sound-volume">
+                            <input type="range" class="volume" min="0" max="100" step="1" value="60" oninput="thisVolume(this.value)" onchange="thisVolume(this.value)">
+                            <span id="vol"></span>
+                        </div>
+                    </div>
+                    <div class="sound-item">
+                        <div class="sound-name">
+                            <p>Guitar</p>
+                            <button class="audiobuttons" id="playButton3"><i class="fa-solid fa-play"></i></button>
+                            <audio loop class="audiofiles" id="audio3" src="./assets/sounds/guitar.mp3" type="audio/mp3"></i></audio>
+                        </div>
+                        <div class="sound-volume">
+                            <input type="range" class="volume" min="0" max="100" step="1" value="60" oninput="thisVolume(this.value)" onchange="thisVolume(this.value)">
+                            <span id="vol"></span>
+                        </div>
+                    </div>
+                    <div class="sound-item">
+                        <div class="sound-name">
+                            <p>Waves</p>
+                            <button class="audiobuttons" id="playButton4"><i class="fa-solid fa-play"></i></button>
+                            <audio loop class="audiofiles" id="audio4" src="./assets/sounds/waves.mp3" type="audio/mp3"></i></audio>
+                        </div>
+                        <div class="sound-volume">
+                            <input type="range" class="volume" min="0" max="100" step="1" value="60" oninput="thisVolume(this.value)" onchange="thisVolume(this.value)">
+                            <span id="vol"></span>
+                        </div>
+                    </div>
+                    <div class="sound-item">
+                        <div class="sound-name">
+                            <p>Gamma Waves</p>
+                            <button class="audiobuttons" id="playButton5"><i class="fa-solid fa-play"></i></button>
+                            <audio loop class="audiofiles" id="audio5" src="./assets/sounds/gamma (mp3cut.net).mp3" type="audio/mp3"></i></audio>
+                        </div>
+                        <div class="sound-volume">
+                            <input type="range" class="volume" min="0" max="100" step="1" value="60" oninput="thisVolume(this.value)" onchange="thisVolume(this.value)">
+                            <span id="vol"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--script for changing background sound-->
+
+                <script>
+                    const audioElements = document.getElementsByClassName('audiofiles');
+                    const playButtons = document.getElementsByClassName('audiobuttons');
+
+
+                    
+                    for (let i = 0; i < playButtons.length; i++) {
+                      playButtons[i].addEventListener('click', function() {
+                        const audio = audioElements[i];
+                        const playButton = playButtons[i];
+                        
+                        if (audio.paused) {
+                          audio.play();
+                          playButton.innerHTML = "<i class='fa-solid fa-pause'></i>"; // update the button text to 'Pause'
+                        } else {
+                          audio.pause();
+                          playButton.innerHTML = "<i class='fa-solid fa-play'></i>" // update the button text to 'Play'
+                        }
+                        
+                        audio.addEventListener('ended', () => {
+                          audio.currentTime = 0; // reset the audio to the beginning
+                          playButton.innerHTML = 'Play'; // update the button text to 'Play'
+                        });
+                      });
+                    }
+
+                    function thisVolume(volume_value){
+                        var audio = document.getElementById('audiofiles');
+                        document.getElementById("vol").innerHTML=volume_value;
+                        audio.volume = volume_value / 100;}
+                    </script>
+
+                <!-- Tasks section -->
+
                 <button class="tasks-icon"><i class="fa-solid fa-list-check"></i></button>
                 <div class="tasks-section">
                     <h3>Tasks</h3>
@@ -115,7 +188,7 @@
 
             <!-- timer block -->
 
-            <div class="timer-block" id="dragme"  ondragstart="drag(event)" draggable="true">
+            <div class="timer-block" draggable="true" ondragstart="drag(event)">
                 <!-- tabs for time and breaks-->
                 <div class="tabs">
                     <label id="pom"><input type="radio" hidden name="timer-type" value="pomodoro" checked>Pomodoro</label>
@@ -135,14 +208,13 @@
                     <!-- controls to start , pause and reset -->
                     <div class="timer-controls">
                         <button id="start"><i class="fa-solid fa-play"></i></button>
-                        <button id="pause" style="display: none;"><i class="fa-solid fa-pause"></i></button>
-                        <button id="reset"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button id="pause"><i class="fa-solid fa-pause"></i></button>
+                        <!-- <button id="reset"><i class="fa-solid fa-rotate-left"></i></button> -->
                     </div>
 
                 </div> 
             </div>
         </div>
-        <script src="pomodoro.js"></script>
     </section>
 </body>
 </html>

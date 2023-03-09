@@ -189,24 +189,47 @@ i {
 .change-sounds-icon:focus {
     color: grey;
 }
-
+.sound-item{
+    padding-bottom: 2vh;
+}
 .sounds button {
     cursor: pointer;
     background-color: transparent;
     border: none;
-    font-size: 4vh;
-    transition: 0.5s;
+    font-size: 2vh;
+    transition: 0.3s;
     color: azure;
-    padding: 0 1vw;}
+    padding: 0 0.5vw;
+    position: relative;
+    margin: 0;
+    align-items: center;
+}
+.sounds h3 {
+    padding-bottom: 1vh;
+}
+.sounds p {
+    font-weight:200;
+    font-size: 15px;
+    padding: 1vh 0;
+}
 
 .sound-name {
     display: flex;
+    align-items: center;
+    padding-bottom: 1vh;
 }
 
-.sound-controls {
+.sound-volume {
     display: flex;
+    width:22vw;
+    align-items: center;
+    justify-content: space-between;
 }
 
+.sounds .volume {
+    height: 2px;
+    width: 20vw;
+}
 /* Task list  */
 
 .tasks-section {
@@ -382,6 +405,7 @@ i {
 }
 
 .timer-controls {
+    display: block;
     padding-top: 6%;
     padding-left: 5%;
     align-items: center;
