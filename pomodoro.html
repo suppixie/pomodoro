@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- THIS IS OLD YESTERDAYS -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,8 @@
     <link rel="stylesheet" href="pomodoro.css">
     <script src="https://kit.fontawesome.com/ce90223bac.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="pomodoro.js"></script>
 </head>
-<body>
+<body ondragover="drag_over(event)" ondrop="drop(event)">
 
     <section id="bg">
         <header>
@@ -22,7 +22,7 @@
                 <li><a href="#">Diary</a></li>
             </ul> -->
         </header>
-        <div class="pomodoro" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="pomodoro">
             <div class="settings">
                 <button class="general-settings-icon"><i class="fa-solid fa-gear"></i></button>
                 <div class="general-settings">
@@ -44,9 +44,10 @@
                         <input type="number" id="lbreakinput" value="minutes" step="1" min="1" max="90">
                         <p style="color: rgb(175, 175, 175);">minutes</p>
                     </div>
+                    <span onclick="setTime()" class="addBtn">Set</span>
                     </div>
                     <hr>
-
+                    
                     <!-- change themes in general settings -->
                     <div class="theme">
                         <h3>Select Theme</h3>
@@ -176,7 +177,7 @@
 
                 <!-- Tasks section -->
 
-                <button class="tasks-icon"><i class="fa-solid fa-list-check"></i></button>
+<button class="tasks-icon"><i class="fa-solid fa-list-check"></i></button>
                 <div class="tasks-section">
                     <h3>Tasks</h3>
                     <input type="text" id="myInput" placeholder="What are you working on?">
@@ -188,7 +189,7 @@
 
             <!-- timer block -->
 
-            <div class="timer-block" draggable="true" ondragstart="drag(event)">
+            <div class="timer-block" id="dragme"  ondragstart="drag(event)" draggable="true">
                 <!-- tabs for time and breaks-->
                 <div class="tabs">
                     <label id="pom"><input type="radio" hidden name="timer-type" value="pomodoro" checked>Pomodoro</label>
@@ -208,8 +209,8 @@
                     <!-- controls to start , pause and reset -->
                     <div class="timer-controls">
                         <button id="start"><i class="fa-solid fa-play"></i></button>
-                        <button id="pause"><i class="fa-solid fa-pause"></i></button>
-                        <!-- <button id="reset"><i class="fa-solid fa-rotate-left"></i></button> -->
+                        <button id="pause" style="display: none;"><i class="fa-solid fa-pause"></i></button>
+                        <button id="reset"><i class="fa-solid fa-rotate-left"></i></button>
                     </div>
 
                 </div> 
@@ -217,4 +218,5 @@
         </div>
     </section>
 </body>
+<script src="pomodoro.js"></script>
 </html>
