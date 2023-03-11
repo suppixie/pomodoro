@@ -151,6 +151,19 @@ i {
     padding:1% 5%;
 }
 
+.general-settings span {
+    background-color: #73737376;
+    padding:0.5vh 2vh;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.general-settings .addBtn:hover {
+    background-color: #5b5b5b76;
+
+}
+.general-settings .close-popup{
+    float: right;
+}
 .general-settings hr{
     margin-bottom: 1vh;
 }

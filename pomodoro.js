@@ -5,7 +5,7 @@ const longBreakButton = document.querySelector('input[value="long-break"]');
 const startButton = document.querySelector('#start');
 const pauseButton = document.querySelector('#pause');
 const resetButton = document.querySelector('#reset');
-const alarmSelect = document.querySelector('#alarm-options')
+const alarmSelect = document.querySelector('#alarm-options');
 const alarm = new Audio();
 
 let countdown;
@@ -29,7 +29,6 @@ function displayTimeLeft(seconds) {
   const remainderSeconds = seconds % 60;
   const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
   timerDisplay.textContent = display;
-  // document.title = display;
 }
 function setTimer() {
   clearInterval(countdown);
@@ -148,8 +147,8 @@ document.body.addEventListener('drop', drop, false);
 function playAlarm() {
   const alarmFile = alarmSelect.value;
   if (alarmFile) {
-    alarm.src = alarmFile;
-    alarm.play();
+    // alarm.src = alarmFile;
+    alarmFile.play();
   }
 }
 
@@ -166,31 +165,11 @@ const themeSelector = document.querySelector("#theme-options")
 selector.addEventListener('change', themes);
 
 
-
+const closePopup = document.getElementById('close-popup');
+closePopup.addEventListener("click",function(){
+  
+})
 // select Background sounds
-
-// const playButtons = document.getElementsByClassName('audiobuttons');
-// const tracks = document.getElementsByClassName('audiofiles');
-
-// for (let i = 0; i < playButtons.length; i++) {
-//   playButtons[i].addEventListener('click', function() {
-//     const track = tracks[i];
-//     const playButton = playButtons[i];
-
-//     if (track.paused) {
-//       track.play();
-//       playButton.innerHTML = 'Pause'; // update the button text to 'Pause'
-//     } else {
-//       track.pause();
-//       playButton.innerHTML = 'Play'; // update the button text to 'Play'
-//     }
-
-//     track.addEventListener('ended', () => {
-//       track.currentTime = 0; // reset the audio to the beginning
-//       playButton.innerHTML = 'Play'; // update the button text to 'Play'
-//     });
-//   });
-// }
 
 
 //add a task in the task list

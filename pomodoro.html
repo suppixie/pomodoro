@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- THIS IS OLD YESTERDAYS -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,14 +53,14 @@
                         <select onchange="themes(value);" class="form-select" id="theme-options">
                             <option  selected value="./assets/aura.jpg">Aura</option>
                             <option  value="./assets/street.jpg">Street</option>
-                            <option  value="./assets/seaside-cafe.jpg">Seaside Cafe</option>
+                            <option  value="./assets/anime1.jpg">Anime</option>
                             <option  value="./assets/boating.jpg">Boating</option>
                             <option  value="./assets/starfish.jpg">Beach</option>
                             <option  value="./assets/northern-lights.jpg">Northern Lights</option>
                             <option  value="./assets/space.jpg">Space</option>
                             <option  value="./assets/sunset-at-sea.jpg">Sunset</option>
                             <option  value="./assets/cat.jpg">Cat</option>
-                            <option  value="./assets/autumn.jpg">Autumn</option>
+                            <option  value="./assets/cottage.jpg">Cottage</option>
                           </select>
                     </div>
                     <!-- change alarm sounds -->
@@ -76,7 +75,9 @@
                           </select>
                     </div>
                     <audio id="alarm" src=""></audio>
+                    <span id="close-popup">Close</span>
                 </div>
+
 
                 <!-- change sounds settings -->
 
@@ -110,7 +111,7 @@
                         <div class="sound-name">
                             <p>Guitar</p>
                             <button class="audiobuttons" id="playButton3"><i class="fa-solid fa-play"></i></button>
-                            <audio loop class="audiofiles" id="audio3" src="./assets/sounds/guitar.mp3" type="audio/mp3"></i></audio>
+                            <audio loop class="audiofiles" id="audio3" src="./assets/sounds/guitar1.mp3" type="audio/mp3"></i></audio>
                         </div>
                         <div class="sound-volume">
                             <input type="range" class="volume" min="0" max="100" step="1" value="60" oninput="thisVolume(this.value)" onchange="thisVolume(this.value)">
