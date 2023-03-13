@@ -23,11 +23,11 @@ The Pomodoro Technique is created by Francesco Cirillo for a more productive way
 
 <h3> UI of the Website 🎨</h3>
 <br>
-<p><img width="470" alt="pondo1" src="https://user-images.githubusercontent.com/100701261/224820966-f17bd58f-f5eb-4b51-b10c-1a3d29aa8a6c.png">&nbsp; 
-<img width="470" alt="pondo4" src="https://user-images.githubusercontent.com/100701261/224821270-78336105-4973-4ce1-826d-bc464ea1149d.png"></p>
+<p><img width="410" alt="pondo1" src="https://user-images.githubusercontent.com/100701261/224820966-f17bd58f-f5eb-4b51-b10c-1a3d29aa8a6c.png">&nbsp; 
+<img width="410" alt="pondo4" src="https://user-images.githubusercontent.com/100701261/224821270-78336105-4973-4ce1-826d-bc464ea1149d.png"></p>
 <p>
-<img width="470" alt="pondo3" src="https://user-images.githubusercontent.com/100701261/224821856-09707280-e89b-49b8-a66e-ab9e762a1c89.png">&nbsp;
-<img width="470" alt="pondo2" src="https://user-images.githubusercontent.com/100701261/224821764-cce99ee7-57f2-40e7-b702-50ad2ec3c804.png">
+<img width="410" alt="pondo3" src="https://user-images.githubusercontent.com/100701261/224821856-09707280-e89b-49b8-a66e-ab9e762a1c89.png">&nbsp;
+<img width="410" alt="pondo2" src="https://user-images.githubusercontent.com/100701261/224821764-cce99ee7-57f2-40e7-b702-50ad2ec3c804.png">
 </p>
 
 <h4>Built using:</h4><br>
