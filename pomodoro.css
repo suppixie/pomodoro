@@ -116,7 +116,7 @@ i {
 .general-settings h4 {
     font-weight: normal;
 }
-.general-settings-icon:focus + .general-settings, .general-settings:hover , .general-settings:active{
+.general-settings-icon:focus + .general-settings, .general-settings:hover , .general-settings:focus-within{
     display: block;
     position: fixed;
     translate: 0% -25%;
@@ -161,9 +161,7 @@ i {
     background-color: #5b5b5b76;
 
 }
-.general-settings .close-popup{
-    float: right;
-}
+
 .general-settings hr{
     margin-bottom: 1vh;
 }
@@ -177,6 +175,8 @@ i {
     height: 3vh;
     width: 10vw;
     font-size: 2.5vh;
+    background-color:#ffffffd8;
+    border-radius: 5px;
 }
 /* change sounds */
 
@@ -193,7 +193,7 @@ i {
     border-radius: 15px;
 }
 
-.change-sounds-icon:focus + .sounds, .sounds:hover, .sounds:active{
+.change-sounds-icon:focus + .sounds,.sounds:hover,.sounds:focus-within{
     display: block;
     position: fixed;
     translate: 0% -20%;
@@ -243,6 +243,7 @@ i {
     height: 2px;
     width: 20vw;
 }
+
 /* Task list  */
 
 .tasks-section {
@@ -261,7 +262,7 @@ i {
 
 }
 
-.tasks-icon:focus +.tasks-section, .tasks-section:hover , .tasks-section:active{
+.tasks-icon:focus +.tasks-section, .tasks-section:hover , .tasks-section:focus-within{
     display: block;
     position: fixed;
     translate: 0% -20%;

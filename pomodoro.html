@@ -66,16 +66,15 @@
                     <!-- change alarm sounds -->
                     <div class="alarms">
                         <h3> Alarm Sound</h3>
-                        <select onchange="alarms(value);" class="form-select" id="alarm-options">
-                            <option  selected value="/assets/alarms/bells.mp3#t=25">Bells</option>
-                            <option value="./assets/alarms/calm.mp3#t=25">Calm</option>
-                            <option value="./assets/alarms/car.mp3#t=25">Car</option>
-                            <option value="./assets/alarms/gong.mp3#t=25">Gong</option>
-                            <option value="./assets/alarms/kalimba.mp3#t=25">kalimba</option>
+                        <select  class="form-select" id="alarm-options">
+                            <option value="./assets/alarms/bells.mp3">Bells</option>
+                            <option value="./assets/alarms/calm.mp3">Calm</option>
+                            <option value="./assets/alarms/car.mp3">Car</option>
+                            <option value="./assets/alarms/gong.mp3">Gong</option>
+                            <option value="./assets/alarms/kalimba.mp3">kalimba</option>
                           </select>
                     </div>
                     <audio id="alarm" src=""></audio>
-                    <span id="close-popup">Close</span>
                 </div>
 
 
@@ -133,7 +132,7 @@
                         <div class="sound-name">
                             <p>Gamma Waves</p>
                             <button class="audiobuttons" id="playButton5"><i class="fa-solid fa-play"></i></button>
-                            <audio loop class="audiofiles" id="audio5" src="./assets/sounds/gamma (mp3cut.net).mp3" type="audio/mp3"></i></audio>
+                            <audio  loop class="audiofiles" id="audio5" src="./assets/sounds/gamma (mp3cut.net).mp3" type="audio/mp3"></i></audio>
                         </div>
                         <div class="sound-volume">
                             <input type="range" class="volume" min="0" max="100" step="1" value="60" oninput="thisVolume(this.value)" onchange="thisVolume(this.value)">
@@ -170,11 +169,14 @@
                       });
                     }
 
-                    function thisVolume(volume_value){
-                        var audio = document.getElementById('audiofiles');
-                        document.getElementById("vol").innerHTML=volume_value;
-                        audio.volume = volume_value / 100;}
-                    </script>
+            
+
+                    // function thisVolume(volume_value){
+                    //     var audio = document.getElementsByClassName('audiofiles');
+                    //     document.getElementById("vol").innerHTML=volume_value;
+                
+                    //     audio.volume = volume_value ;}
+                    // </script>
 
                 <!-- Tasks section -->
 

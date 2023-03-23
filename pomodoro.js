@@ -5,8 +5,7 @@ const longBreakButton = document.querySelector('input[value="long-break"]');
 const startButton = document.querySelector('#start');
 const pauseButton = document.querySelector('#pause');
 const resetButton = document.querySelector('#reset');
-const alarmSelect = document.querySelector('#alarm-options');
-const alarm = new Audio();
+const alarmSelect = document.getElementById('alarm-options');
 
 let countdown;
 let seconds
@@ -24,12 +23,17 @@ function setTime() {
   resetTimer();
 }
 
+//displaying the time left
+
 function displayTimeLeft(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainderSeconds = seconds % 60;
   const display = `${minutes}:${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
   timerDisplay.textContent = display;
 }
+
+//Set the timer
+
 function setTimer() {
   clearInterval(countdown);
   if (timerType === 'pomodoro') {
@@ -46,6 +50,8 @@ function setTimer() {
   startTimer(seconds)
 }
 
+//Starting the timer
+
 function startTimer(seconds) {
   displayTimeLeft(seconds);
   countdown = setInterval(() => {
@@ -58,6 +64,7 @@ function startTimer(seconds) {
     }
   }, 1000);
 }
+
 function resumeTimer() {
   clearInterval(countdown);
   var currTime = timerDisplay.textContent.split(":");
@@ -145,11 +152,9 @@ document.body.addEventListener('drop', drop, false);
 // changing the alarms
 
 function playAlarm() {
-  const alarmFile = alarmSelect.value;
-  if (alarmFile) {
-    // alarm.src = alarmFile;
-    alarmFile.play();
-  }
+  const alarmSound = new Audio(alarmSelect.value);
+  alarmSound.play();
+  
 }
 
 // changing the theme of the website
@@ -163,13 +168,6 @@ function themes() {
 
 const themeSelector = document.querySelector("#theme-options")
 selector.addEventListener('change', themes);
-
-
-const closePopup = document.getElementById('close-popup');
-closePopup.addEventListener("click",function(){
-  
-})
-// select Background sounds
 
 
 //add a task in the task list
