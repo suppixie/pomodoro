@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Marcellus&family=Oleo+Script&family=Poppins:wght@300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    cursor: default;
+}
+
+section {
+    max-width: 100%;
+    height: 100vh;
+    display: block;
+    position: relative;
+    justify-content: space-between;
+    
+}
+body{
+    font-family:'Poppins', sans-serif;
+    background-image: url(./assets/aura.jpg);
+    background-repeat: no-repeat;
+    /* background-size:100%; */
+    background-size: cover;
+    transition: 0.5s;
+}
+header {
+    max-width: 100%;
+    height:8vh;
+    display: flex;
+    padding: 1vh 1.2vw;
+    align-items: center;
+    /* background-color: rgba(57, 59, 68, 0.85); */
+    font-size: 2.8vh;
+    color: azure;
+}
+header a{
+    padding-top: 4px;
+    margin-left: 2vw;
+    text-decoration: none;
+    color: azure;
+    border-bottom: 1.5px solid azure;
+}
+
+/* 
+header ul {
+    display: flex;
+    position: relative;
+}
+
+header ul li {
+    list-style: none;
+    padding: 0 2vw;
+}
+
+header ul li a{
+    text-decoration: none;
+    cursor: pointer;
+    font-size: medium;
+    color:azure;
+} */
+
+
+.pomodoro {
+    color:azure;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+/* settings of the timer css */
+
+.settings {
+    margin: 2vh 1vw;
+    width: 4vw;
+    max-height: 25vh;
+    background-color:rgba(35,40,48,255);
+    position: relative;
+    border-radius:15px;
+    display: block;
+    z-index: 0;
+}
+.settings input {
+    width: 5vw;
+}
+.settings button {
+    background-color: transparent;
+    font-size:2vw;
+    border: none;
+    display:block;
+    margin: 1.1vw;
+    cursor: pointer;
+    color: azure;
+
+}
+i {
+    cursor: pointer;
+}
+
+/* general settings of timer and theme */
+
+.general-settings {
+    background-color: rgba(35,40,48,255);
+    float: left;
+    margin:0 5vw;
+    display: none;
+    max-height: 40vh;
+    min-width: 25vw;
+    max-width: 40vw;
+    padding: 1.5vw;
+    border-radius: 15px;
+    font-size: 2vh;
+    transition: 0.5s;
+    align-items: center;
+}
+
+.general-settings h3 {
+    font-size: 3vh;
+    padding-bottom: 2%;
+    font-weight:bold;
+}
+
+.general-settings h4 {
+    font-weight: normal;
+}
+.general-settings-icon:focus + .general-settings, .general-settings:hover , .general-settings:focus-within{
+    display: block;
+    position: fixed;
+    translate: 0% -25%;
+
+}
+.general-settings-icon:focus {
+    color: grey;
+}
+.general-settings div {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.general-settings .pinput {
+    display: block;
+    padding-right: 2%;
+    min-width: 8vw;
+}
+.general-settings .pinput * {
+    padding-bottom: 8%;
+}
+.general-settings #workinput, #sbreakinput , #lbreakinput {
+    color: azure;
+    border-radius: 5px;
+    border: 1.5px grey solid;
+    background-color: rgba(35,40,48,255);
+    min-width: 5.5vw;
+    height: 3.5vh;
+    background-clip: padding-box;
+    bottom: 0;
+    padding:1% 5%;
+}
+
+.general-settings span {
+    background-color: #73737376;
+    padding:0.5vh 2vh;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.general-settings .addBtn:hover {
+    background-color: #5b5b5b76;
+
+}
+
+.general-settings hr{
+    margin-bottom: 1vh;
+}
+.general-settings .theme, .alarms{
+    display: flex;
+    align-items: center;
+}
+
+.theme select , .alarms select {
+    align-items: center;
+    height: 3vh;
+    width: 10vw;
+    font-size: 2.5vh;
+    background-color:#ffffffd8;
+    border-radius: 5px;
+}
+/* change sounds */
+
+.sounds {
+    background-color: rgba(35,40,48,255);
+    float: left;
+    margin:0 5vw;
+    display: none;
+    position:sticky;
+    min-height: 40vh;
+    min-width: 25vw;
+    max-width: 40vw;
+    padding: 1.5vw;
+    border-radius: 15px;
+}
+
+.change-sounds-icon:focus + .sounds,.sounds:hover,.sounds:focus-within{
+    display: block;
+    position: fixed;
+    translate: 0% -20%;
+}
+
+.change-sounds-icon:focus {
+    color: grey;
+}
+.sound-item{
+    padding-bottom: 2vh;
+}
+.sounds button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 2vh;
+    transition: 0.3s;
+    color: azure;
+    padding: 0 0.5vw;
+    position: relative;
+    margin: 0;
+    align-items: center;
+}
+.sounds h3 {
+    padding-bottom: 1vh;
+}
+.sounds p {
+    font-weight:200;
+    font-size: 15px;
+    padding: 1vh 0;
+}
+
+.sound-name {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1vh;
+}
+
+.sound-volume {
+    display: flex;
+    width:22vw;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sounds .volume {
+    height: 2px;
+    width: 20vw;
+}
+
+/* Task list  */
+
+.tasks-section {
+    float: left;
+    display: none;
+    min-width: 25vw;
+    margin:0 5vw;
+    border-radius: 15px;
+    position: absolute;
+    min-height: 40vh;
+    background-color: rgba(35,40,48,255);
+    padding: 1.5vw;
+    /*
+    position:sticky;
+   */
+
+}
+
+.tasks-icon:focus +.tasks-section, .tasks-section:hover , .tasks-section:focus-within{
+    display: block;
+    position: fixed;
+    translate: 0% -20%;
+}
+
+.tasks-icon:focus {
+    color: grey;
+}
+
+#myInput {
+    margin-top: 2vh;
+    background: transparent;
+    color: azure;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    padding: 0.5vh;
+    margin-right: 1.4vw;
+    width: 18vw;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.571);
+    cursor: text;
+  }
+
+.tasks-section span {
+    background-color: #73737376;
+    padding:0.5vh 2vh;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.tasks-section .addBtn:hover {
+    background-color: #5b5b5b76;
+
+}
+
+#myUL {
+    margin-top: 1vh;
+    padding: 0;
+  }
+  
+  /* Style the list items */
+  #myUL li {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+    padding: 1.5vh 0.5vw;
+    list-style-type: none;
+    font-size:2.5vh ;
+    transition: 0.2s;
+    border-bottom:2px solid rgb(155, 155, 155) ;
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+
+  /* Darker background-color on hover */
+  #myUL li:hover {
+    background: #4a494972;
+
+
+  }
+  
+  /* When clicked on, add a background color and strike out text */
+  #myUL li.checked {
+    color: #fff;
+    text-decoration: line-through;
+    padding-left: 12%;
+  }
+  
+  /* Add a "checked" mark when clicked on */
+  #myUL li.checked::before {
+    
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 1.4vh;
+    left: 1vw;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+  
+  /* Style the close button */
+  .close {
+    position: absolute;
+    right: 0;
+    padding:16px;
+  }
+  
+  .close:hover {
+    background-color: #f44336;
+    color: white;
+  }
+  
+
+/* timer block css */
+
+.timer-block {
+    display: block;
+    width: 24vw;
+    max-width: 30vw;
+    max-height: 25vh;
+    border-radius: 20px;
+    text-align: center;
+    position: fixed;
+    top: 2vh;
+    right: 1vw;
+    /* translate: 120% 120%; */
+}
+
+/* tabs in the timer */
+.tabs {
+    display: flex;
+    background-color:rgba(35,40,48,255);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    padding-left: 1%;
+}
+
+.tabs label {
+    background-color: transparent;
+    /* background-color:rgba(35,40,48,255); */
+    /*  rgba(57, 59, 68, 0.85); */
+    padding:3% 3%;
+    cursor: pointer;
+    font-size: 2.4vh;
+    align-items: center;
+    border-right: 1px solid rgba(240, 255, 255, 0.654);
+}
+
+.tabs label:active  {
+    background-color: rgb(52, 52, 52);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+#lb {
+    border: none;
+}
+
+.timer {
+    text-align: center;
+    color: white;
+    background-color: rgba(35,40,48,255);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 6%;
+
+
+}
+.time-display {
+    font-size: 4vw;
+    /* display: flex; */
+}
+
+.timer-controls {
+    display: block;
+    padding-top: 6%;
+    padding-left: 5%;
+    align-items: center;
+    /* margin:0 8vw; */
+    /* justify-content: space-between; */
+}
+
+.timer-controls button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 5vh;
+    transition: 0.5s;
+    color: azure;
+    padding: 0 1vw;
+
+}
+.timer-controls button:hover {
+    transform: scale(1.2);
+    transition:1s;
+    cursor: pointer;
+}

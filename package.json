@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.3.3"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:dotenv": "dotenv -e .env node server.js"
+  },
+  "name": "pomodoro",
+  "description": "Pomodoro website is a Productivity tool that can be used to focus on completing tasks/study/code with ambient music of your choice. \r The website consists of a customizable pomodoro timer along with short break and long break, different themes, ambient background sounds and a tasks section to record the tasks to be completed.\r The pomodoro technique has been proved to improve efficiency and keep oneself focussed, which is the purpose of this project.",
+  "version": "1.0.0",
+  "main": "pomodoro.html",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "dotenv": "^16.1.3",
+    "eslint": "^8.41.0",
+    "nodemon": "^2.0.22"
+  }
+}

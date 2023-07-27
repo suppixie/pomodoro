@@ -8,7 +8,7 @@ const resetButton = document.querySelector('#reset');
 const alarmSelect = document.getElementById('alarm-options');
 
 let countdown;
-let seconds
+let seconds;
 let timerType = 'pomodoro';
 let pomodoroCount = 0;
 let initial = true;

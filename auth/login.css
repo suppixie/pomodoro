@@ -1,0 +1,38 @@
+body{
+    font-family:'Poppins', sans-serif;
+    box-sizing: border-box;
+    top: 0;
+    margin: 0;
+    background-image: radial-gradient(circle,rgb(255, 147, 187),rgb(227, 142, 250),rgb(147, 242, 242));
+    background-size:200vh;
+    scroll-behavior: smooth;
+    color: white;
+    /* display: block; */
+
+}
+
+.login_block{
+    display: block;
+    background-color:rgb(37, 40, 44);
+    padding: 1.5vw;
+    width: 20vw;
+    border-radius: 15px;
+    align-items: center;
+   
+}
+.login_page{
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.loginForm  *{
+    display: block;
+    justify-content: center;
+}
+
+input{
+    background-color: transparent;
+    border: 1px solid white;
+    
+}
